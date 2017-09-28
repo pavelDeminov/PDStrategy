@@ -17,11 +17,20 @@ class MaskDataModel: BaseDataModel {
     }
     
     override func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        return string.isNumberString
+        return self.isNumberString(string: string)
     }
     
     override func updateApiValueFromObject() {
         apiValue = object as? String
+    }
+    
+    func isNumberString(string: String) -> Bool {
+        let charactersSet = CharacterSet.decimalDigits
+        if string.rangeOfCharacter(from: charactersSet.inverted) != nil {
+            return false
+        } else {
+            return true
+        }
     }
 
 }
