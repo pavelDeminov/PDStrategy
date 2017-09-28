@@ -22,4 +22,13 @@ class NumbersDataModel: BaseDataModel {
         apiValue = object as? String
     }
     
+    func isNumberString(string: String) -> Bool {
+        let charactersSet = CharacterSet.decimalDigits
+        if String.rangeOfCharacter(from: charactersSet.inverted) != nil {
+            return false
+        } else {
+            return true
+        }
+    }
+    
 }
