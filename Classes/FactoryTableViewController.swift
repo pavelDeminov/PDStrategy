@@ -10,8 +10,8 @@ import UIKit
 
 open class FactoryTableViewController: UIViewController {
     
-    internal var model: BaseSectionDataModel!
-    @IBOutlet private(set) weak var tableView: UITableView!
+    open var model: BaseSectionDataModel!
+    @IBOutlet weak private(set) open var tableView: UITableView!
     
     override open func viewDidLoad() {
         super.viewDidLoad()

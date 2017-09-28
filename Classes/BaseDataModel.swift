@@ -78,14 +78,14 @@ open class BaseDataModel: NSObject {
         return true
     }
     
-    override init() {
+    override public init() {
         super.init()
     }
-    convenience init(title:String?, object: AnyObject?, apiKey: String?, cellIdentifier: String?, placeholder: String?) {
+    convenience public init(title:String?, object: AnyObject?, apiKey: String?, cellIdentifier: String?, placeholder: String?) {
         self.init(title: title, object: object, apiKey: apiKey, cellIdentifier: cellIdentifier, placeholder: placeholder, icon: nil)
     }
     
-    init(title:String?, object: AnyObject?, apiKey: String?, cellIdentifier: String?, placeholder: String?, icon: UIImage?) {
+    public init(title:String?, object: AnyObject?, apiKey: String?, cellIdentifier: String?, placeholder: String?, icon: UIImage?) {
         //super.init()
         self.title = title;
         self.object = object

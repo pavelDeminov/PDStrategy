@@ -14,7 +14,7 @@ public protocol FactoryCellDelegate {
     func editingDidEnd(cell: FactoryCell)
 }
 
-extension FactoryCellDelegate {
+public extension FactoryCellDelegate {
     func editingShouldStart(cell: FactoryCell) -> Bool {
         return true
     }
@@ -24,16 +24,16 @@ extension FactoryCellDelegate {
 
 open class FactoryCell: UITableViewCell {
     
-    @IBOutlet weak internal(set) var textField: UITextField?
-    @IBOutlet weak internal(set) var iconImageView: UIImageView?
-    @IBOutlet weak internal(set) var titleLabel: UILabel?
-    @IBOutlet weak internal(set) var valueLabel: UILabel?
-    @IBOutlet weak internal(set) var errorLabel: UILabel?
+    @IBOutlet weak open internal(set) var textField: UITextField?
+    @IBOutlet weak open internal(set) var iconImageView: UIImageView?
+    @IBOutlet weak open internal(set) var titleLabel: UILabel?
+    @IBOutlet weak open internal(set) var valueLabel: UILabel?
+    @IBOutlet weak open internal(set) var errorLabel: UILabel?
     
     open var delegate: FactoryCellDelegate?
     open var errorLabelBorderColor = UIColor.red
     
-    internal var elementModel: BaseDataModel? {
+    open var elementModel: BaseDataModel? {
         didSet {
             updateUI()
         }
@@ -52,7 +52,7 @@ open class FactoryCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    internal func updateUI() {
+    open func updateUI() {
         guard let element = elementModel else {
             return
         }
