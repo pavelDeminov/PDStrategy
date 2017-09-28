@@ -8,22 +8,22 @@
 
 import UIKit
 
-class DateDataModel: BaseDataModel {
+open class DateDataModel: BaseDataModel {
     
-    var apiDateFormat: String = "yyyy-MM-dd'T'hh:mm:ss"
-    var uiDateFormat: String = "dd.MM.yyyy"
-    let dateformatter = DateFormatter()
+    open var apiDateFormat: String = "yyyy-MM-dd'T'hh:mm:ss"
+    open var uiDateFormat: String = "dd.MM.yyyy"
+    open let dateformatter = DateFormatter()
     
-    override func updateObjectFromTextFieldValue() {
+    override open func updateObjectFromTextFieldValue() {
         dateformatter.dateFormat = uiDateFormat
         object = textFieldValue != nil ? dateformatter.date(from: textFieldValue!) : nil
     }
     
-    override func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    override open func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         return true
     }
     
-    override func updateApiValueFromObject() {
+    override open func updateApiValueFromObject() {
         apiValue = object as? String
         dateformatter.dateFormat = apiDateFormat
         if let date = object as? Date {

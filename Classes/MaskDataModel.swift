@@ -8,23 +8,23 @@
 
 import UIKit
 
-class MaskDataModel: BaseDataModel {
+open class MaskDataModel: BaseDataModel {
     
-    var mask: String?
+    open var mask: String?
    
-    override func updateObjectFromTextFieldValue() {
+    override open func updateObjectFromTextFieldValue() {
         //object = textFieldValue as AnyObject
     }
     
-    override func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    override open  func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         return self.isNumberString(string: string)
     }
     
-    override func updateApiValueFromObject() {
+    override open func updateApiValueFromObject() {
         apiValue = object as? String
     }
     
-    func isNumberString(string: String) -> Bool {
+    private func isNumberString(string: String) -> Bool {
         let charactersSet = CharacterSet.decimalDigits
         if string.rangeOfCharacter(from: charactersSet.inverted) != nil {
             return false

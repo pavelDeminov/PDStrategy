@@ -8,44 +8,44 @@
 
 import UIKit
 
-enum ValidationState {
+public enum ValidationState {
     case none
     case valid
     case invalid(error: String)
 }
 
-func ==(lhs: ValidationState, rhs: ValidationState) -> Bool {
+public func ==(lhs: ValidationState, rhs: ValidationState) -> Bool {
     return String(stringInterpolationSegment: lhs) == String(stringInterpolationSegment: rhs)
 }
 
-func !=(lhs: ValidationState, rhs: ValidationState) -> Bool {
+public func !=(lhs: ValidationState, rhs: ValidationState) -> Bool {
     return String(stringInterpolationSegment: lhs) != String(stringInterpolationSegment: rhs)
 }
 
-class BaseDataModel: BaseModel {
+open class BaseDataModel: NSObject {
     
-    var object: Any? {
+    open var object: Any? {
         didSet {
             updateApiValueFromObject()
         }
     }
-    var apiKey: String?
-    var cellIdentifier: String?
-    var placeholder: String?
-    var icon: UIImage?
-    var title: String?
+    open var apiKey: String?
+    open var cellIdentifier: String?
+    open var placeholder: String?
+    open var icon: UIImage?
+    open var title: String?
     
-    var textFieldValue: String? {
+    open var textFieldValue: String? {
         didSet {
             updateObjectFromTextFieldValue()
         }
     }
-    var apiValue: String?
-    var isValid = ValidationState.none
-    var validationError: String?
-    var validationsRules: [ValidationRule]?
+    open var apiValue: String?
+    open var isValid = ValidationState.none
+    open var validationError: String?
+    open var validationsRules: [ValidationRule]?
     
-    func validate() {
+    open func validate() {
         isValid = .valid
         guard let rules = validationsRules, let object = object else {
             return
@@ -61,7 +61,7 @@ class BaseDataModel: BaseModel {
         }
     }
     
-    func invalidate() {
+    open func invalidate() {
         isValid = ValidationState.none
         validationError = nil
     }

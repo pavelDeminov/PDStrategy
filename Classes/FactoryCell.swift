@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol FactoryCellDelegate {
+public protocol FactoryCellDelegate {
     func editingShouldStart(cell: FactoryCell) -> Bool
     func editingDidBegin(cell: FactoryCell)
     func editingDidEnd(cell: FactoryCell)
@@ -22,7 +22,7 @@ extension FactoryCellDelegate {
     func editingDidEnd(cell: FactoryCell) {}
 }
 
-class FactoryCell: UITableViewCell {
+open class FactoryCell: UITableViewCell {
     
     @IBOutlet weak internal(set) var textField: UITextField?
     @IBOutlet weak internal(set) var iconImageView: UIImageView?
@@ -30,8 +30,8 @@ class FactoryCell: UITableViewCell {
     @IBOutlet weak internal(set) var valueLabel: UILabel?
     @IBOutlet weak internal(set) var errorLabel: UILabel?
     
-    var delegate: FactoryCellDelegate?
-    var errorLabelBorderColor = UIColor.red
+    open var delegate: FactoryCellDelegate?
+    open var errorLabelBorderColor = UIColor.red
     
     internal var elementModel: BaseDataModel? {
         didSet {
@@ -39,14 +39,14 @@ class FactoryCell: UITableViewCell {
         }
     }
     
-    override func awakeFromNib() {
+    override open func awakeFromNib() {
         super.awakeFromNib()
         
         textField?.addTarget(self, action: #selector(editingDidChanged(sender:)), for: .valueChanged)
         textField?.delegate = self
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
+    override open func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state
@@ -78,7 +78,7 @@ class FactoryCell: UITableViewCell {
         
     }
     
-    public func editingDidChanged(sender: UITextField) {
+    open func editingDidChanged(sender: UITextField) {
         elementModel?.textFieldValue = sender.text
     }
 

@@ -8,10 +8,10 @@
 
 import UIKit
 
-class ValidationRule: NSObject {    
-    var validationBlock: ((_ value: Any?) -> (valid: Bool, error:String?) )?
+open class ValidationRule: NSObject {
+    open var validationBlock: ((_ value: Any?) -> (valid: Bool, error:String?) )?
     
-    func isValid(value: Any) -> (valid: Bool, error: String?) {
+    open func isValid(value: Any) -> (valid: Bool, error: String?) {
         guard let block = validationBlock else {
             return (true, nil)
         }

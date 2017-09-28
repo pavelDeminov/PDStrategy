@@ -8,31 +8,31 @@
 
 import UIKit
 
-class FactoryTableViewController: UIViewController {
+open class FactoryTableViewController: UIViewController {
     
     internal var model: BaseSectionDataModel!
     @IBOutlet private(set) weak var tableView: UITableView!
+    
+    override open func viewDidLoad() {
+        super.viewDidLoad()
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+    }
 
 }
 
 extension FactoryTableViewController: UITableViewDelegate, UITableViewDataSource {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
+    open func numberOfSections(in tableView: UITableView) -> Int {
         return model.sectionDataArray.count
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sectionDataArray = model.sectionDataArray[section]
         return sectionDataArray.data.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let sectionDataArray = model.sectionDataArray[indexPath.section]
         let elementModel = sectionDataArray.data[indexPath.row]
@@ -56,11 +56,11 @@ extension FactoryTableViewController: UITableViewDelegate, UITableViewDataSource
         
     }
     
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+    open func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 44
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    open func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
 }

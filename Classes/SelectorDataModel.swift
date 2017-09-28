@@ -8,27 +8,27 @@
 
 import UIKit
 
-class SelectorDataModel: BaseDataModel {
+open class SelectorDataModel: BaseDataModel {
     
-    var selectorArray:[(uiValue: String , apiValue: String)]?
-    var selectedIndex: Int? {
+    open var selectorArray:[(uiValue: String , apiValue: String)]?
+    open var selectedIndex: Int? {
         didSet {
             updateValueFromArray()
         }
     }
     
-    override func updateObjectFromTextFieldValue() {
+    override open func updateObjectFromTextFieldValue() {
         guard let selectedIndex = selectedIndex, let count = selectorArray?.count, count > selectedIndex  else {
             return
         }
         object = selectorArray![selectedIndex]
     }
     
-    override func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    override open func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         return false
     }
     
-    override func updateApiValueFromObject() {
+    override open func updateApiValueFromObject() {
         guard let selectedIndex = selectedIndex, let count = selectorArray?.count, count > selectedIndex  else {
             return
         }

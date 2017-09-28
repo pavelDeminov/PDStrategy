@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NumbersDataModel: BaseDataModel {
+open class NumbersDataModel: BaseDataModel {
     
     override func updateObjectFromTextFieldValue() {
         object = textFieldValue as Any
@@ -22,7 +22,7 @@ class NumbersDataModel: BaseDataModel {
         apiValue = object as? String
     }
     
-    func isNumberString(string: String) -> Bool {
+    private func isNumberString(string: String) -> Bool {
         let charactersSet = CharacterSet.decimalDigits
         if string.rangeOfCharacter(from: charactersSet.inverted) != nil {
             return false

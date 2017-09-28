@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NameDataModel: BaseDataModel {
+open class NameDataModel: BaseDataModel {
         
     override func updateObjectFromTextFieldValue() {
         object = textFieldValue as AnyObject
@@ -22,7 +22,7 @@ class NameDataModel: BaseDataModel {
         apiValue = object as? String
     }
     
-    func isNamePart(string: String) -> Bool {
+    private func isNamePart(string: String) -> Bool {
         var charactersSet = CharacterSet.letters
         charactersSet.formUnion(CharacterSet(charactersIn: "- ") )
         if string.rangeOfCharacter(from: charactersSet.inverted) != nil {

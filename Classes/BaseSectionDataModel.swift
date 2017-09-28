@@ -8,21 +8,21 @@
 
 import UIKit
 
-class BaseSectionDataModel: BaseModel {
-    var valid: Bool?
-    var modelWithError: BaseDataModel?
+open class BaseSectionDataModel: NSObject {
+    open var valid: Bool?
+    open var modelWithError: BaseDataModel?
     
-    var sectionDataArray = [(section: String?, data: [BaseDataModel])]()
+    open var sectionDataArray = [(section: String?, data: [BaseDataModel])]()
     
-    func addSection(sectionName: String?, dataModel: [BaseDataModel]) {
+    open func addSection(sectionName: String?, dataModel: [BaseDataModel]) {
         sectionDataArray.append((sectionName , dataModel))
     }
     
-    func removeSections() {
+    open func removeSections() {
         sectionDataArray = [(String?, [BaseDataModel])]()
     }
     
-    func validate() -> BaseDataModel? {
+    open func validate() -> BaseDataModel? {
         invalidate()
         var modelWithError: BaseDataModel?
         var valid = true
@@ -57,7 +57,7 @@ class BaseSectionDataModel: BaseModel {
         }
     }
     
-    func objectToDictionary() -> [String: Any] {
+    open func objectToDictionary() -> [String: Any] {
         var dict = [String: Any]()
         for section in sectionDataArray {
             for cellInfo in section.data {
