@@ -3,6 +3,10 @@ Pod::Spec.new do |s|
 
   s.name         = "PDStrategy"
   s.version      = "0.0.2"
+
+  s.platform = :ios
+  s.ios.deployment_target = '8.0'
+
   s.summary      = "Helper for implementation Strategy Pattern"
 
   s.description  = <<-DESC

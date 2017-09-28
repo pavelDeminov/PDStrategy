@@ -14,13 +14,6 @@ class DateDataModel: BaseDataModel {
     var uiDateFormat: String = "dd.MM.yyyy"
     let dateformatter = DateFormatter()
     
-    
-    override func validate() {
-        
-        isValid = object as? Date != nil ? .valid : .invalid(error: "Неправильный формат даты")
-
-    }
-    
     override func updateObjectFromTextFieldValue() {
         dateformatter.dateFormat = uiDateFormat
         object = textFieldValue != nil ? dateformatter.date(from: textFieldValue!) : nil

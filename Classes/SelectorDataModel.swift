@@ -17,16 +17,6 @@ class SelectorDataModel: BaseDataModel {
         }
     }
     
-    override func validate() {
-        
-        guard let selectedIndex = selectedIndex, let count = selectorArray?.count, count > selectedIndex  else {
-            isValid = .invalid(error: "Ошибка в базе значений")
-            return
-        }
-        isValid = .valid
-
-    }
-    
     override func updateObjectFromTextFieldValue() {
         guard let selectedIndex = selectedIndex, let count = selectorArray?.count, count > selectedIndex  else {
             return
