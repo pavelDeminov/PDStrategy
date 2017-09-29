@@ -99,8 +99,10 @@
     NSAssert(cellClass != nil, @"Cell class not found,%@", item.cellIdentifier);
     
     BOOL isPdClass = [cellClass isSubclassOfClass:[PDStrategyContextTableViewCell class]];
-    NSAssert(isPdClass, @"Cell %@ not a PDStrategyContextTableViewCell subclass", cellClass);
-    
+    if (!isPdClass) {
+        NSAssert(isPdClass, @"Cell %@ not a PDStrategyContextTableViewCell subclass", cellClass);
+    }
+
     return cellClass;
 }
 

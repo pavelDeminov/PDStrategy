@@ -26,7 +26,7 @@
     if (self.validationBlock) {
         return self.validationBlock(value);
     } else {
-        return nil;
+        return true;
     }
 }
 @end
