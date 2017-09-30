@@ -10,7 +10,7 @@
 
 @class PDStrategyModel;
 
-@interface PDStrategyContextViewController : UIViewController
+@interface PDStrategyContextViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) PDStrategyModel *model;
 @property (nonatomic, weak) IBOutlet UITableView *tableView;

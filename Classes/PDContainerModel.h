@@ -12,6 +12,8 @@
 @interface PDContainerModel : NSObject
 
 @property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *cellIdentifier;
+@property (nonatomic, strong) UIImage *icon;
 @property (nonatomic, strong) NSArray <PDItemModel *> *items;
 @property (nonatomic) ValidState state;
 @property (nonatomic, strong) PDItemModel *errorItem;
