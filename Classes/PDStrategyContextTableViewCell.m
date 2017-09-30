@@ -42,7 +42,7 @@
 - (void)updateUI {
     PDItemModel *model = self.model;
     
-    if ([self.model.object isKindOfClass:[NSString class]]) {
+    if (!self.model.object || [self.model.object isKindOfClass:[NSString class]]) {
         self.textField.text = model.object;
         self.valueLabel.text = model.object;
     }
