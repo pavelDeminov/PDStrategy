@@ -17,7 +17,7 @@
 
 @end
 
-@interface PDStrategyContextTableViewCell : UITableViewCell
+@interface PDStrategyContextTableViewCell : UITableViewCell <UITextFieldDelegate>
 
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UILabel *valueLabel;

@@ -8,7 +8,7 @@
 
 #import "PDStrategyContextTableViewCell.h"
 
-@interface PDStrategyContextTableViewCell () <UITextFieldDelegate>
+@interface PDStrategyContextTableViewCell ()
 
 @end
 
