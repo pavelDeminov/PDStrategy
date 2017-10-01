@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "PDStrategy"
-  s.version      = "0.1.0"
+  s.version      = "0.1.1"
 
   s.platform = :ios
   s.ios.deployment_target = '7.0'
@@ -21,7 +21,18 @@ This is testing pod
 
   s.author             = { "Pavel Deminov" => "pavel.d.work@gmail.com" }
 
-  s.source       = { :git => "https://github.com/sindanar/PDStrategy.git", :tag => "v0.1.0" }
-  s.source_files  = "Classes", "Classes/**/*.{h,m}"
+  s.source       = { :git => "https://github.com/sindanar/PDStrategy.git", :tag => "v0.1.1" }
+
+  s.subspec "TableView" do |ps|
+    ps.source_files = "Classes/TableView/**/*.{h,m}"
+  end
+  s.subspec "CollectionView" do |ps|
+    ps.source_files = "Classes/CollectionView/**/*.{h,m}"
+  end
+  s.subspec "Models" do |ps|
+    ps.source_files = "Classes/Models/**/*.{h,m}"
+  end
+
+  s.default_subspec = "Models"
 
 end
