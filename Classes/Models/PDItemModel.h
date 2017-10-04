@@ -24,6 +24,7 @@ typedef NS_ENUM(NSUInteger, ValidState) {
 @property (nonatomic, strong) NSString *apiKey;
 @property (nonatomic) BOOL apiRequred;
 @property (nonatomic, strong) UIImage *icon;
+@property (nonatomic, strong) NSURL *iconUrl;
 @property (nonatomic, strong) id object;
 
 @property (nonatomic) ValidState state;

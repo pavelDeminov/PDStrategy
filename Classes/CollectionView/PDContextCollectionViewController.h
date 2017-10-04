@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PDStrategyModel.h"
 
-@interface PDContextCollectionViewController : UIViewController
+@interface PDContextCollectionViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
-@property (nonatomic, weak) IBOutlet UICollectionView *collectioView;
+@property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
+@property (nonatomic, strong) PDStrategyModel *model;
 
 
 @end

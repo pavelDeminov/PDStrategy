@@ -10,16 +10,37 @@
 
 @implementation PDContextCell
 
-+ (BOOL)dynamicHeight {
-    return YES;
++ (CGSize)defaultSize:(UICollectionViewLayout *)layout{
+    return CGSizeMake(50, 50);
 }
 
-+ (CGFloat)defaultHeight {
-    return 44;
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self setup];
+    }
+    return self;
+}
+
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self setup];
+    }
+    return self;
+}
+
+- (void)setup {
+    
 }
 
 - (void)setModel:(PDItemModel *)model {
     _model = model;
+    [self updateUI];
+}
+
+- (void)setImageIsLoading:(BOOL)imageIsLoading {
+    _imageIsLoading = imageIsLoading;
     [self updateUI];
 }
 
@@ -36,6 +57,12 @@
     self.iconImageView.image = model.icon;
     self.titleLabel.text = model.title;
     self.errorLabel.text = self.model.errorRule.error;
+    
+    if (self.imageIsLoading) {
+        [self.activityIndicator startAnimating];
+    } else {
+        [self.activityIndicator stopAnimating];
+    }
 }
 
 @end

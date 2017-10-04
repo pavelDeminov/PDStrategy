@@ -15,10 +15,12 @@
 @property (nonatomic, weak) IBOutlet UILabel *valueLabel;
 @property (nonatomic, weak) IBOutlet UILabel *errorLabel;
 @property (nonatomic, weak) IBOutlet UIImageView *iconImageView;
+@property (nonatomic, weak) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (nonatomic) BOOL imageIsLoading;
 @property (nonatomic, strong) PDItemModel *model;
 
-+ (BOOL)dynamicHeight;
-+ (CGFloat)defaultHeight;
++ (CGSize)defaultSize:(UICollectionViewLayout *)layout;
 - (void)updateUI;
+- (void)setup;
 
 @end
