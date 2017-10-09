@@ -10,6 +10,8 @@
 #import <UIKit/UIKit.h>
 #import "PDValidationRule.h"
 
+@class NSManagedObject;
+
 typedef NS_ENUM(NSUInteger, ValidState) {
     ValidStateNone,
     ValidStateTrue,
@@ -26,6 +28,8 @@ typedef NS_ENUM(NSUInteger, ValidState) {
 @property (nonatomic, strong) UIImage *icon;
 @property (nonatomic, strong) NSURL *iconUrl;
 @property (nonatomic, strong) id object;
+@property (nonatomic, strong) id modelType;
+@property (nonatomic, strong) NSManagedObject *coreDataObject;
 
 @property (nonatomic) ValidState state;
 @property (nonatomic, strong) PDValidationRule *errorRule;

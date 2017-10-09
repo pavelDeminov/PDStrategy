@@ -17,6 +17,7 @@
 @property (nonatomic, strong) NSArray <PDItemModel *> *items;
 @property (nonatomic) ValidState state;
 @property (nonatomic, strong) PDItemModel *errorItem;
+@property (nonatomic, strong) NSDateFormatter *apiDateForamater;
 
 - (void)validate;
 - (void)invalidate;

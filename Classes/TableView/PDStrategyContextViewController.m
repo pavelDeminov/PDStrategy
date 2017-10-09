@@ -9,11 +9,10 @@
 #import "PDStrategyContextViewController.h"
 #import "PDStrategyModel.h"
 #import "PDContainerModel.h"
-#import "PDStrategyContextTableViewCell.h"
 #import "PDItemModel.h"
 #import "PDTableViewHeaderFooterView.h"
 
-@interface PDStrategyContextViewController () <PDStrategyContextTableViewCellDelegate>
+@interface PDStrategyContextViewController ()
 
 @end
 
@@ -26,10 +25,26 @@
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillBeHidden:)
                                                  name:UIKeyboardWillHideNotification object:nil];
+    self.refreshControl = [UIRefreshControl new];
+    [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
+    if ([self.tableView respondsToSelector:@selector(setRefreshControl:)]) {
+        [self.tableView setRefreshControl:self.refreshControl];
+    }
+    else {
+        [self.tableView addSubview:self.refreshControl];
+    }
 }
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)refresh {
+    
+    UIRefreshControl *refreshControl = self.refreshControl;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        [refreshControl endRefreshing];
+    });
 }
 
 - (void)keyboardWillBeHidden:(NSNotification*)aNotification

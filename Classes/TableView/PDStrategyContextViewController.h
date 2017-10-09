@@ -7,12 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PDStrategyContextTableViewCell.h"
 
 @class PDStrategyModel;
 
-@interface PDStrategyContextViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface PDStrategyContextViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, PDStrategyContextTableViewCellDelegate>
 
 @property (nonatomic, strong) PDStrategyModel *model;
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
+
+- (void)refresh;
 
 @end

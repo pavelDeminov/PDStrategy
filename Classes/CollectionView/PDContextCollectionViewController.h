@@ -13,6 +13,7 @@
 
 @property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) PDStrategyModel *model;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 
-
+- (void)refresh;
 @end

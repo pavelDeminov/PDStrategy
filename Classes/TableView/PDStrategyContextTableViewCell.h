@@ -24,6 +24,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *errorLabel;
 @property (nonatomic, weak) IBOutlet UITextField *textField;
 @property (nonatomic, weak) IBOutlet UIImageView *iconImageView;
+@property (nonatomic, weak) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (nonatomic, strong) PDItemModel *model;
 @property (nonatomic, weak) id <PDStrategyContextTableViewCellDelegate> delegate;
 

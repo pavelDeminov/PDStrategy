@@ -8,6 +8,7 @@
 
 #import "PDContextCollectionViewController.h"
 #import "PDContextCell.h"
+#import "PDCollectionReusableView.h"
 
 @interface PDContextCollectionViewController ()
 
@@ -19,12 +20,28 @@
     [super viewDidLoad];
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
-    // Do any additional setup after loading the view.
+    
+    self.refreshControl = [UIRefreshControl new];
+    [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
+    if ([self.collectionView respondsToSelector:@selector(setRefreshControl:)]) {
+        [self.collectionView setRefreshControl:self.refreshControl];
+    }
+    else {
+        [self.collectionView addSubview:self.refreshControl];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)refresh {
+    
+    UIRefreshControl *refreshControl = self.refreshControl;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        [refreshControl endRefreshing];
+    });
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -75,6 +92,53 @@
     BOOL isPdClass = [cellClass isSubclassOfClass:[PDContextCell class]];
     if (!isPdClass) {
         NSAssert(isPdClass, @"Cell %@ not a PDContextCell subclass", cellClass);
+    }
+    
+    return cellClass;
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    
+    PDStrategyModel *model = self.model;
+    PDContainerModel *container = model.sections[indexPath.section];
+    
+    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+        PDCollectionReusableView *header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:container.cellIdentifier forIndexPath:indexPath];
+        header.model = container;
+        return header;
+    } else {
+        return nil;
+    }
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
+    Class headerClass = [self collectionView:collectionView headerClassForSection:section];
+    return [headerClass defaultSize:collectionViewLayout];
+}
+
+- (Class)collectionView:(UICollectionView *)collectionView headerClassForSection:(NSUInteger)section {
+    PDStrategyModel *model = self.model;
+    PDContainerModel *container = model.sections[section];
+    
+    NSString *classString = container.cellIdentifier;
+    
+    if (classString == nil) {
+        return nil;
+    }
+    
+    Class cellClass = NSClassFromString(classString);
+    if (!cellClass) {
+        //Not objc
+        NSString *moduleName = [[NSStringFromClass([self class]) componentsSeparatedByString:@"."] firstObject];
+        classString = [NSString stringWithFormat:@"%@.%@",moduleName, container.cellIdentifier];
+        cellClass = NSClassFromString(classString);
+    }
+    
+    NSAssert(cellClass != nil, @"Header class not found,%@", container.cellIdentifier);
+    
+    BOOL isPdClass = [cellClass isSubclassOfClass:[PDCollectionReusableView class]];
+    if (!isPdClass) {
+        NSAssert(isPdClass, @"Header %@ not a PDCollectionReusableView subclass", cellClass);
     }
     
     return cellClass;

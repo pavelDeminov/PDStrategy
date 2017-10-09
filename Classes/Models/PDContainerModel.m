@@ -32,7 +32,13 @@
     NSMutableDictionary *dict = [NSMutableDictionary new];
     for (PDItemModel *item in self.items) {
         if (item.apiKey) {
-            dict[item.apiKey] = item.object;
+            id object = item.object;
+            if ([object isKindOfClass:[NSDate class]]) {
+                dict[item.apiKey] = @"";
+            } else {
+                 dict[item.apiKey] = object;
+            }
+            
         } else if (item.apiRequred){
             NSLog(@"Requred apiKey not found %@ in %@",item.apiKey, item.title);
         }
