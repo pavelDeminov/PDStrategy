@@ -16,6 +16,7 @@
 @property (nonatomic, strong) PDStrategyModel *model;
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
+@property (nonatomic) BOOL refreshEnabled;
 
 - (void)refresh;
 

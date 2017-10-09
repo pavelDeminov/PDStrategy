@@ -18,6 +18,25 @@
 
 @implementation PDStrategyContextViewController
 
+- (void)setRefreshEnabled:(BOOL)refreshEnabled {
+    _refreshEnabled = refreshEnabled;
+    
+    if ([self.tableView respondsToSelector:@selector(setRefreshControl:)]) {
+        if (refreshEnabled) {
+            [self.tableView setRefreshControl:self.refreshControl];
+        } else {
+            [self.tableView setRefreshControl:nil];
+        }
+    }
+    else {
+        if (refreshEnabled) {
+            [self.tableView addSubview:self.refreshControl];
+        } else {
+            [self.refreshControl removeFromSuperview];
+        }
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.dataSource = self;
@@ -27,12 +46,6 @@
                                                  name:UIKeyboardWillHideNotification object:nil];
     self.refreshControl = [UIRefreshControl new];
     [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
-    if ([self.tableView respondsToSelector:@selector(setRefreshControl:)]) {
-        [self.tableView setRefreshControl:self.refreshControl];
-    }
-    else {
-        [self.tableView addSubview:self.refreshControl];
-    }
 }
 
 - (void)dealloc {

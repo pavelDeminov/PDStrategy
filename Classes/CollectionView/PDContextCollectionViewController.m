@@ -16,6 +16,26 @@
 
 @implementation PDContextCollectionViewController
 
+- (void)setRefreshEnabled:(BOOL)refreshEnabled {
+    _refreshEnabled = refreshEnabled;
+    
+    if ([self.collectionView respondsToSelector:@selector(setRefreshControl:)]) {
+        if (refreshEnabled) {
+            [self.collectionView setRefreshControl:self.refreshControl];
+        } else {
+            [self.collectionView setRefreshControl:nil];
+        }
+    }
+    else {
+        if (refreshEnabled) {
+            [self.collectionView addSubview:self.refreshControl];
+        } else {
+            [self.refreshControl removeFromSuperview];
+        }
+    }
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.collectionView.dataSource = self;
@@ -23,12 +43,6 @@
     
     self.refreshControl = [UIRefreshControl new];
     [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
-    if ([self.collectionView respondsToSelector:@selector(setRefreshControl:)]) {
-        [self.collectionView setRefreshControl:self.refreshControl];
-    }
-    else {
-        [self.collectionView addSubview:self.refreshControl];
-    }
 }
 
 - (void)didReceiveMemoryWarning {
