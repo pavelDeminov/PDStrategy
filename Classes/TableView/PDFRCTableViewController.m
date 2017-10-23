@@ -7,6 +7,7 @@
 
 #import "PDFRCTableViewController.h"
 #import "PDItemInfo.h"
+#import "PDFRCSectionInfoAdapter.h"
 
 @interface PDFRCTableViewController ()
 
