@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "PDStrategy"
-  s.version      = "0.1.8"
+  s.version      = "0.1.9"
 
   s.platform = :ios
   s.ios.deployment_target = '7.0'
@@ -21,7 +21,7 @@ This is testing pod
 
   s.author             = { "Pavel Deminov" => "pavel.d.work@gmail.com" }
 
-  s.source       = { :git => "https://github.com/sindanar/PDStrategy.git", :tag => "v0.1.8" }
+  s.source       = { :git => "https://github.com/sindanar/PDStrategy.git", :tag => "v0.1.9" }
 
   s.frameworks = 'CoreData'
 
@@ -32,8 +32,8 @@ This is testing pod
     m.source_files = "Classes/Models/**/*.{h,m}"
   end
   
-  s.subspec "UI" do |cv|
-    cv.source_files = "Classes/UI/**/*.{h,m}"
+  s.subspec "UI" do |ui|
+    ui.source_files = "Classes/UI/**/*.{h,m}"
   end
 
   s.subspec "TableView" do |tv|
@@ -45,7 +45,7 @@ This is testing pod
   s.subspec "CollectionView" do |cv|
     cv.source_files = "Classes/CollectionView/**/*.{h,m}"
     cv.dependency 'PDStrategy/Models'
-    tv.dependency 'PDStrategy/UI'
+    cv.dependency 'PDStrategy/UI'
   end
 
 end
