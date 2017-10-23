@@ -5,7 +5,7 @@
 //  Created by Pavel Deminov on 22/10/2017.
 //
 
-#import <PDStrategy/PDStrategy.h>
+#import "PDTableViewController.h"
 @import CoreData;
 
 @interface PDFRCTableViewController : PDTableViewController <NSFetchedResultsControllerDelegate>
