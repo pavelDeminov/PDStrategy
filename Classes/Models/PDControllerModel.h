@@ -7,12 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "PDContainerModel.h"
+#import "PDSectionModel.h"
 
-@interface PDStrategyModel : NSObject
+@interface PDControllerModel : NSObject
 
-@property (nonatomic, strong) NSArray <PDContainerModel *> *sections;
-@property (nonatomic, strong) PDContainerModel *errorContainer;
+@property (nonatomic, strong) NSArray <PDSectionModel *> *sections;
+@property (nonatomic, strong) PDSectionModel *errorContainer;
 @property (nonatomic) ValidState state;
 
 - (void)setup;

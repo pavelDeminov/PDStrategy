@@ -6,13 +6,13 @@
 //  Copyright © 2017 Minimal Cafe. All rights reserved.
 //
 
-#import "PDStrategyContextTableViewCell.h"
+#import "PDTableViewCell.h"
 
-@interface PDStrategyContextTableViewCell ()
+@interface PDTableViewCell ()
 
 @end
 
-@implementation PDStrategyContextTableViewCell
+@implementation PDTableViewCell
 
 + (BOOL)dynamicHeight {
     return YES;
@@ -22,9 +22,21 @@
     return 44;
 }
 
-- (void)setModel:(PDItemModel *)model {
-    _model = model;
+- (void)setItem:(id<PDItemInfo>)item {
+    _item = item;
     [self updateUI];
+}
+- (PDItemModel *)model {
+    if ([self.item isKindOfClass:[PDItemModel class]]) {
+        PDItemModel *model = (PDItemModel*)self.item;
+        return model;
+    } else {
+        return nil;
+    }
+}
+
+- (void)setModel:(PDItemModel *)model {
+    self.item = model;
 }
 
 - (void)awakeFromNib {
@@ -40,16 +52,17 @@
 }
 
 - (void)updateUI {
+    
     PDItemModel *model = self.model;
     
-    if (!self.model.object || [self.model.object isKindOfClass:[NSString class]]) {
+    if (!model.object || [model.object isKindOfClass:[NSString class]]) {
         self.textField.text = model.object;
         self.valueLabel.text = model.object;
     }
     self.textField.placeholder = model.placeholder;
     self.iconImageView.image = model.icon;
     self.titleLabel.text = model.title;
-    self.errorLabel.text = self.model.errorRule.error;
+    self.errorLabel.text = model.errorRule.error;
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
@@ -62,7 +75,8 @@
 }
 
 - (void)valueChanged {
-    self.model.object = self.textField.text;
+    PDItemModel *model = self.model;
+    model.object = self.textField.text;
 }
 
 @end

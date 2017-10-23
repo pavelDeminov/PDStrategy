@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "PDStrategy"
-  s.version      = "0.1.5"
+  s.version      = "0.1.6"
 
   s.platform = :ios
   s.ios.deployment_target = '7.0'
@@ -21,8 +21,10 @@ This is testing pod
 
   s.author             = { "Pavel Deminov" => "pavel.d.work@gmail.com" }
 
-  s.source       = { :git => "https://github.com/sindanar/PDStrategy.git", :tag => "v0.1.5" }
-  
+  s.source       = { :git => "https://github.com/sindanar/PDStrategy.git", :tag => "v0.1.6" }
+
+  s.frameworks = 'CoreData'
+
   s.public_header_files = 'Classes/PDStrategy.h'
   s.source_files = 'Classes/PDStrategy.h'
 

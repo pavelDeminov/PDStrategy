@@ -1,5 +1,5 @@
 //
-//  PDContextCell.h
+//  PDCollectionViewCell.h
 //  Pods
 //
 //  Created by Pavel Deminov on 01/10/2017.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "PDItemModel.h"
 
-@interface PDContextCell : UICollectionViewCell
+@interface PDCollectionViewCell : UICollectionViewCell
 
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UILabel *valueLabel;

@@ -30,7 +30,7 @@
     return self;
 }
 
-- (void)setModel:(PDContainerModel *)model {
+- (void)setModel:(PDSectionModel *)model {
     _model = model;
     [self updateUI];
 }

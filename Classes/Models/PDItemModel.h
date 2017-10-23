@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "PDValidationRule.h"
+#import "PDItemInfo.h"
 
 @class NSManagedObject;
 
@@ -18,7 +19,7 @@ typedef NS_ENUM(NSUInteger, ValidState) {
     ValidStateFalse,
 };
 
-@interface PDItemModel : NSObject
+@interface PDItemModel : NSObject <PDItemInfo>
 
 @property (nonatomic, strong) NSString *cellIdentifier;
 @property (nonatomic, strong) NSString *title;

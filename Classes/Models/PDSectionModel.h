@@ -1,5 +1,5 @@
 //
-//  PDContainerModel.h
+//  PDSectionModel.h
 //  Commerce
 //
 //  Created by Pavel Deminov on 29/09/2017.
@@ -8,16 +8,19 @@
 
 #import <Foundation/Foundation.h>
 #import "PDItemModel.h"
+#import "PDSectionInfo.h"
 
-@interface PDContainerModel : NSObject
+@interface PDSectionModel : NSObject <PDSectionInfo>
 
 @property (nonatomic, strong) NSString *title;
-@property (nonatomic, strong) NSString *cellIdentifier;
+@property (nonatomic, strong) id object;
+@property (nonatomic, strong) NSString *sectionIdentifier;
 @property (nonatomic, strong) UIImage *icon;
 @property (nonatomic, strong) NSArray <PDItemModel *> *items;
 @property (nonatomic) ValidState state;
 @property (nonatomic, strong) PDItemModel *errorItem;
 @property (nonatomic, strong) NSDateFormatter *apiDateForamater;
+@property (nonatomic, strong) id modelType;
 
 - (void)validate;
 - (void)invalidate;

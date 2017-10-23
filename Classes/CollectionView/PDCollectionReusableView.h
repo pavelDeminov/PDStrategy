@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PDContainerModel.h"
+#import "PDSectionModel.h"
 
 @interface PDCollectionReusableView : UICollectionReusableView
 
-@property (nonatomic, strong) PDContainerModel *model;
+@property (nonatomic, strong) PDSectionModel *model;
 
 + (CGSize)defaultSize:(UICollectionViewLayout *)layout;
 

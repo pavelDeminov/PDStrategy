@@ -7,13 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PDContainerModel.h"
+#import "PDSectionModel.h"
 
 @interface PDTableViewHeaderFooterView : UITableViewHeaderFooterView
 
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UIImageView *iconImageView;
-@property (nonatomic, strong) PDContainerModel *model;
+@property (nonatomic, readwrite) PDSectionModel *model;
+@property (nonatomic, strong) id <PDSectionInfo> section;
 
 + (BOOL)dynamicHeight;
 + (CGFloat)defaultHeight;

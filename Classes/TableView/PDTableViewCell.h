@@ -8,16 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "PDItemModel.h"
+#import "PDItemInfo.h"
 
-@class PDStrategyContextTableViewCell;
+@class PDTableViewCell;
 
-@protocol PDStrategyContextTableViewCellDelegate <NSObject>
+@protocol PDTableViewCellDelegate <NSObject>
 
-- (void)cellDidBeginEdit:(PDStrategyContextTableViewCell*)cell;
+- (void)cellDidBeginEdit:(PDTableViewCell*)cell;
 
 @end
 
-@interface PDStrategyContextTableViewCell : UITableViewCell <UITextFieldDelegate>
+@interface PDTableViewCell : UITableViewCell <UITextFieldDelegate>
 
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UILabel *valueLabel;
@@ -25,8 +26,10 @@
 @property (nonatomic, weak) IBOutlet UITextField *textField;
 @property (nonatomic, weak) IBOutlet UIImageView *iconImageView;
 @property (nonatomic, weak) IBOutlet UIActivityIndicatorView *activityIndicator;
-@property (nonatomic, strong) PDItemModel *model;
-@property (nonatomic, weak) id <PDStrategyContextTableViewCellDelegate> delegate;
+@property (nonatomic, strong) id <PDItemInfo> item;
+@property (nonatomic, readwrite) PDItemModel *model;
+
+@property (nonatomic, weak) id <PDTableViewCellDelegate> delegate;
 
 + (BOOL)dynamicHeight;
 + (CGFloat)defaultHeight;

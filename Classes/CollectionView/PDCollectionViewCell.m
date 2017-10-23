@@ -1,14 +1,14 @@
 //
-//  PDContextCell.m
+//  PDCollectionViewCell.m
 //  Pods
 //
 //  Created by Pavel Deminov on 01/10/2017.
 //
 //
 
-#import "PDContextCell.h"
+#import "PDCollectionViewCell.h"
 
-@implementation PDContextCell
+@implementation PDCollectionViewCell
 
 + (CGSize)defaultSize:(UICollectionViewLayout *)layout{
     return CGSizeMake(50, 50);

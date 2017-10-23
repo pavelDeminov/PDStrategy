@@ -18,15 +18,32 @@
     return 28;
 }
 
-- (void)setModel:(PDContainerModel *)model {
-    _model = model;
+- (void)setSection:(id<PDSectionInfo>)section {
+    _section = section;
     [self updateUI];
 }
 
+- (void)setModel:(PDSectionModel *)model {
+    self.section = model;
+}
+
+- (PDSectionModel *)model {
+    if ([self.section isKindOfClass:[PDSectionModel class]]) {
+        PDSectionModel *model = (PDSectionModel*)self.section;
+        return model;
+    } else {
+        return nil;
+    }
+}
+
 - (void)updateUI {
-    PDContainerModel *model = self.model;
-    self.titleLabel.text = model.title;
-    self.iconImageView.image = model.icon;
+    self.titleLabel.text = self.section.title;
+
+    PDSectionModel *model = self.model;
+    if (model) {
+        self.iconImageView.image = model.icon;
+    }
+    
 }
 
 @end

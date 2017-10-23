@@ -6,9 +6,15 @@
 //  Copyright © 2017 Minimal Cafe. All rights reserved.
 //
 
-#import "PDStrategyModel.h"
+#import "PDControllerModel.h"
 
-@implementation PDStrategyModel
+@interface PDControllerModel ()
+
+@property (nonatomic, strong) NSMutableArray <PDSectionModel *> *newwSections;
+
+@end
+
+@implementation PDControllerModel
 
 - (instancetype)init {
     self = [super init];
@@ -24,11 +30,11 @@
 
 - (void)validate {
     ValidState state = ValidStateNone;
-    for (PDContainerModel *container in self.sections) {
-        [container validate];
-        state = container.state;
+    for (PDSectionModel *section in self.sections) {
+        [section validate];
+        state = section.state;
         if (state == ValidStateFalse) {
-            self.errorContainer = container;
+            self.errorContainer = section;
             break;
         }
     }
@@ -42,7 +48,7 @@
 
 - (NSDictionary *)dictionary {
     NSMutableDictionary *dict = [NSMutableDictionary new];
-    for (PDContainerModel *container in self.sections) {
+    for (PDSectionModel *container in self.sections) {
         NSDictionary *containerDict = [container dictionary];
         [dict addEntriesFromDictionary:containerDict];
     }

@@ -1,14 +1,14 @@
 //
-//  PDContainerModel.m
+//  PDSectionModel.m
 //  Commerce
 //
 //  Created by Pavel Deminov on 29/09/2017.
 //  Copyright © 2017 Minimal Cafe. All rights reserved.
 //
 
-#import "PDContainerModel.h"
+#import "PDSectionModel.h"
 
-@implementation PDContainerModel
+@implementation PDSectionModel
 
 - (void)validate {
     ValidState state = ValidStateNone;
@@ -33,12 +33,8 @@
     for (PDItemModel *item in self.items) {
         if (item.apiKey) {
             id object = item.object;
-            if ([object isKindOfClass:[NSDate class]]) {
-                dict[item.apiKey] = @"";
-            } else {
-                 dict[item.apiKey] = object;
-            }
-            
+            dict[item.apiKey] = object;
+
         } else if (item.apiRequred){
             NSLog(@"Requred apiKey not found %@ in %@",item.apiKey, item.title);
         }
