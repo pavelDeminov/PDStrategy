@@ -29,8 +29,7 @@
 
 - (id <PDSectionInfo>)sectionInfoForSection:(NSInteger)section {
     id <NSFetchedResultsSectionInfo> frcSectionInfo = self.sections[section];
-    NSString *identifier = [self sectionIdentifierForSection:section];
-    PDFRCSectionInfoAdapter *adapter = [PDFRCSectionInfoAdapter adapterWith:frcSectionInfo sectionIdentifier:identifier];
+    PDFRCSectionInfoAdapter *adapter = [PDFRCSectionInfoAdapter adapterWith:frcSectionInfo];
     return adapter;
 }
 

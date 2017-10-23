@@ -18,4 +18,12 @@
 @property (nonatomic) BOOL refreshEnabled;
 
 - (void)refresh;
+
+- (NSArray *)sections;
+- (id <PDSectionInfo>)sectionInfoForSection:(NSInteger)section;
+- (id <PDItemInfo> )itemForIndexPath:(NSIndexPath *)indexPath;
+
+- (NSString *)cellIdentifierForIndexPath:(NSIndexPath *)indexPath;
+- (NSString *)sectionIdentifierForSection:(NSInteger)section;
+
 @end

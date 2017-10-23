@@ -57,25 +57,66 @@
     });
 }
 
+- (NSArray <id <PDSectionInfo>> *)sections {
+    return self.model.sections;
+}
+
+- (id <PDSectionInfo>)sectionInfoForSection:(NSInteger)section {
+    return self.sections[section];
+}
+
+- (id <PDItemInfo> )itemForIndexPath:(NSIndexPath *)indexPath {
+    id <PDSectionInfo> sectionInfo = [self sectionInfoForSection:indexPath.section];
+    PDItemModel *item = sectionInfo.items[indexPath.row];
+    return item;
+}
+
+- (NSString *)cellIdentifierForIndexPath:(NSIndexPath *)indexPath {
+    NSString *classString = NSStringFromClass([self class]);
+    classString = [[NSStringFromClass([self class]) componentsSeparatedByString:@"."] lastObject];
+    classString = [classString stringByReplacingOccurrencesOfString:@"ViewController" withString:@""];
+    NSString *identifier = [NSString stringWithFormat:@"%@Cell",classString];
+    return identifier;
+}
+
+- (NSString *)sectionIdentifierForSection:(NSInteger)section {
+    NSString *classString = NSStringFromClass([self class]);
+    classString = [[NSStringFromClass([self class]) componentsSeparatedByString:@"."] lastObject];
+    classString = [classString stringByReplacingOccurrencesOfString:@"ViewController" withString:@""];
+    NSString *identifier = [NSString stringWithFormat:@"%@Header",classString];
+    return identifier;
+}
+
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return self.model.sections.count;
+    return self.sections.count;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    PDControllerModel *model = self.model;
-    PDSectionModel *container = model.sections[section];
-    return container.items.count;
+    id <PDSectionInfo> sectionInfo = [self sectionInfoForSection:section];
+    return sectionInfo.items.count;
 }
 
-// The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    PDControllerModel *model = self.model;
-    PDSectionModel *container = model.sections[indexPath.section];
-    PDItemModel *item = container.items[indexPath.row];
     
-    PDCollectionViewCell *cell = (PDCollectionViewCell*)[collectionView dequeueReusableCellWithReuseIdentifier:item.cellIdentifier forIndexPath:indexPath];
-    NSAssert(cell != nil, @"Cell not found");
-    cell.model = item;
+    id <PDItemInfo> item = [self itemForIndexPath:indexPath];
+    
+    if (![item conformsToProtocol:@protocol(PDItemInfo)]) {
+        NSAssert(false, @"Item not conforms to protocol PDItemInfo %@", [item class]);
+        return nil;
+    }
+    
+    NSString *cellIdentifier = [self cellIdentifierForIndexPath:indexPath];
+    PDCollectionViewCell *cell = (PDCollectionViewCell*)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
+    if (cell == nil) {
+        Class cellClass = [self collectionView:collectionView cellClassForRowAtIndexPath:indexPath];
+        if (cellClass != nil) {
+            [collectionView registerClass:cellClass forCellWithReuseIdentifier:cellIdentifier];
+            cell = (PDCollectionViewCell*)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
+        }
+    }
+    
+    NSAssert(cell != nil, @"Cell %@ not found in %@", cellIdentifier, [self class]);
+    cell.item = item;
     //cell.delegate = self;
     return cell;
 }
@@ -87,20 +128,19 @@
 }
 
 - (Class)collectionView:(UICollectionView *)collectionView cellClassForRowAtIndexPath:(NSIndexPath *)indexPath {
-    PDControllerModel *model = self.model;
-    PDSectionModel *container = model.sections[indexPath.section];
-    PDItemModel *item = container.items[indexPath.row];
     
-    NSString *classString = item.cellIdentifier;
-    Class cellClass = NSClassFromString(classString);
+    NSString *identifier = [self cellIdentifierForIndexPath:indexPath];
+    
+    Class cellClass = NSClassFromString(identifier);
     if (!cellClass) {
         //Not objc
         NSString *moduleName = [[NSStringFromClass([self class]) componentsSeparatedByString:@"."] firstObject];
-        classString = [NSString stringWithFormat:@"%@.%@",moduleName, item.cellIdentifier];
-        cellClass = NSClassFromString(classString);
+        identifier = [NSString stringWithFormat:@"%@.%@",moduleName, identifier];
+        cellClass = NSClassFromString(identifier);
     }
-    
-    NSAssert(cellClass != nil, @"Cell class not found,%@", item.cellIdentifier);
+    if ( cellClass == nil ) {
+        return nil;
+    }
     
     BOOL isPdClass = [cellClass isSubclassOfClass:[PDCollectionViewCell class]];
     if (!isPdClass) {
@@ -112,12 +152,21 @@
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     
-    PDControllerModel *model = self.model;
-    PDSectionModel *container = model.sections[indexPath.section];
+    id <PDSectionInfo> sectionInfo = [self sectionInfoForSection:indexPath.section];
+    NSString *sectionIdentifier = [self sectionIdentifierForSection:indexPath.section];
     
     if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
-        PDCollectionReusableView *header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:container.sectionIdentifier forIndexPath:indexPath];
-        header.model = container;
+        
+        PDCollectionReusableView *header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:sectionIdentifier forIndexPath:indexPath];
+        if (header == nil) {
+            Class class = [self collectionView:collectionView headerClassForSection:indexPath.section];
+            if (class != nil) {
+                [collectionView registerClass:class forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:sectionIdentifier];
+                class = [self collectionView:collectionView headerClassForSection:indexPath.section];
+            }
+        }
+        NSAssert(header != nil, @"Header %@ not found in %@", sectionIdentifier, [self class]);
+        header.model = sectionInfo;
         return header;
     } else {
         return nil;
@@ -130,24 +179,24 @@
 }
 
 - (Class)collectionView:(UICollectionView *)collectionView headerClassForSection:(NSUInteger)section {
-    PDControllerModel *model = self.model;
-    PDSectionModel *container = model.sections[section];
+   
+    NSString *sectionIdentifier = [self sectionIdentifierForSection:section];
     
-    NSString *classString = container.sectionIdentifier;
-    
-    if (classString == nil) {
+    if (sectionIdentifier == nil) {
         return nil;
     }
     
-    Class cellClass = NSClassFromString(classString);
+    Class cellClass = NSClassFromString(sectionIdentifier);
     if (!cellClass) {
         //Not objc
         NSString *moduleName = [[NSStringFromClass([self class]) componentsSeparatedByString:@"."] firstObject];
-        classString = [NSString stringWithFormat:@"%@.%@",moduleName, container.sectionIdentifier];
-        cellClass = NSClassFromString(classString);
+        sectionIdentifier = [NSString stringWithFormat:@"%@.%@",moduleName, sectionIdentifier];
+        cellClass = NSClassFromString(sectionIdentifier);
     }
     
-    NSAssert(cellClass != nil, @"Header class not found,%@", container.sectionIdentifier);
+    if ( cellClass == nil ) {
+        return nil;
+    }
     
     BOOL isPdClass = [cellClass isSubclassOfClass:[PDCollectionReusableView class]];
     if (!isPdClass) {

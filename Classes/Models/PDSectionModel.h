@@ -14,7 +14,6 @@
 
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) id object;
-@property (nonatomic, strong) NSString *sectionIdentifier;
 @property (nonatomic, strong) UIImage *icon;
 @property (nonatomic, strong) NSArray <PDItemModel *> *items;
 @property (nonatomic) ValidState state;

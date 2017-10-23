@@ -34,9 +34,21 @@
     
 }
 
-- (void)setModel:(PDItemModel *)model {
-    _model = model;
+- (void)setItem:(id<PDItemInfo>)item {
+    _item = item;
     [self updateUI];
+}
+- (PDItemModel *)model {
+    if ([self.item isKindOfClass:[PDItemModel class]]) {
+        PDItemModel *model = (PDItemModel*)self.item;
+        return model;
+    } else {
+        return nil;
+    }
+}
+
+- (void)setModel:(PDItemModel *)model {
+    self.item = model;
 }
 
 - (void)setImageIsLoading:(BOOL)imageIsLoading {

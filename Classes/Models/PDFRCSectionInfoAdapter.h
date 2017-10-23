@@ -11,10 +11,9 @@
 
 @interface PDFRCSectionInfoAdapter : NSObject <PDSectionInfo>
 
-@property (nonatomic, strong) NSString *sectionIdentifier;
 @property (nonatomic, strong) id <NSFetchedResultsSectionInfo> frcSectionInfo;
 
-+ (instancetype)adapterWith:(id <NSFetchedResultsSectionInfo>)sectionInfo sectionIdentifier:(NSString *)sectionIdentifier;
-- (instancetype)initWithFRCSectionInfo:(id <NSFetchedResultsSectionInfo>)sectionInfo sectionIdentifier:(NSString *)sectionIdentifier;
++ (instancetype)adapterWith:(id <NSFetchedResultsSectionInfo>)sectionInfo;
+- (instancetype)initWithFRCSectionInfo:(id <NSFetchedResultsSectionInfo>)sectionInfo;
 
 @end

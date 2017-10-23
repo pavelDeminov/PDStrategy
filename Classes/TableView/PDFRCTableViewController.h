@@ -11,8 +11,6 @@
 @interface PDFRCTableViewController : PDTableViewController <NSFetchedResultsControllerDelegate>
 
 @property (nonatomic, strong) NSFetchedResultsController *frc;
-@property (nonatomic, readonly) NSString *frcSectionCellIdentifier;
-@property (nonatomic, readonly) NSString *frcItemCellIdentifier;
 
 - (void)setupFRC;
 @end

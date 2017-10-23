@@ -9,6 +9,4 @@
 
 @protocol PDItemInfo <NSObject>
 
-- (NSString *)itemTitle;
-
 @end

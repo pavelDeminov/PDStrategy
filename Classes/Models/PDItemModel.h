@@ -21,7 +21,6 @@ typedef NS_ENUM(NSUInteger, ValidState) {
 
 @interface PDItemModel : NSObject <PDItemInfo>
 
-@property (nonatomic, strong) NSString *cellIdentifier;
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *placeholder;
 @property (nonatomic, strong) NSString *apiKey;

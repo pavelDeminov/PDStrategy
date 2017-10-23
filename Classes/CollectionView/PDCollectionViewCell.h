@@ -17,7 +17,8 @@
 @property (nonatomic, weak) IBOutlet UIImageView *iconImageView;
 @property (nonatomic, weak) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (nonatomic) BOOL imageIsLoading;
-@property (nonatomic, strong) PDItemModel *model;
+@property (nonatomic, strong) id <PDItemInfo> item;
+@property (nonatomic, readwrite) PDItemModel *model;
 
 + (CGSize)defaultSize:(UICollectionViewLayout *)layout;
 - (void)updateUI;

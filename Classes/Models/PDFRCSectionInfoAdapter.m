@@ -9,16 +9,15 @@
 
 @implementation PDFRCSectionInfoAdapter
 
-+ (instancetype)adapterWith:(id <NSFetchedResultsSectionInfo>)sectionInfo sectionIdentifier:(NSString *)sectionIdentifier {
-    PDFRCSectionInfoAdapter *adapter = [[PDFRCSectionInfoAdapter alloc] initWithFRCSectionInfo:sectionInfo sectionIdentifier:sectionIdentifier];
++ (instancetype)adapterWith:(id <NSFetchedResultsSectionInfo>)sectionInfo {
+    PDFRCSectionInfoAdapter *adapter = [[PDFRCSectionInfoAdapter alloc] initWithFRCSectionInfo:sectionInfo];
     return adapter;
 }
 
-- (instancetype)initWithFRCSectionInfo:(id <NSFetchedResultsSectionInfo>)sectionInfo sectionIdentifier:(NSString *)sectionIdentifier {
+- (instancetype)initWithFRCSectionInfo:(id <NSFetchedResultsSectionInfo>)sectionInfo {
     self = [super init];
     if (self) {
         self.frcSectionInfo = sectionInfo;
-        self.sectionIdentifier = sectionIdentifier;
     }
     return self;
 }
