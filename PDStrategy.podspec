@@ -66,8 +66,8 @@ This is testing pod
   end
 
   s.subspec "Extensions" do | extensions |
-    builders.source_files = "Example/PDStrategy/PDStrategy/PDStrategy/Extensions/**/*.{swift}"
-    builders.dependency 'PDStrategy/Protocols'
+    extensions.source_files = "Example/PDStrategy/PDStrategy/PDStrategy/Extensions/**/*.{swift}"
+    extensions.dependency 'PDStrategy/Protocols'
   end
 
 end
