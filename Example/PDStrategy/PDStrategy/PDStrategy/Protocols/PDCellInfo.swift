@@ -10,7 +10,6 @@ import UIKit
 
 typealias ReloadCellBlock = () -> Void
 
-
 protocol PDCellInfo {
     
     var item: PDItemInfo? {get set}

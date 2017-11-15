@@ -330,14 +330,14 @@
 		958E147E1FADEE9400DD0B65 /* PDStrategy */ = {
 			isa = PBXGroup;
 			children = (
+				958E14801FADEECD00DD0B65 /* Protocols */,
+				958E147F1FADEE9F00DD0B65 /* Models */,
 				95FA5D6F1FB24C8D002C5DA4 /* Adapters */,
-				95801E921FAE673900E3FEA8 /* Builders */,
 				958E149E1FAE199600DD0B65 /* Views */,
+				95801E921FAE673900E3FEA8 /* Builders */,
 				95BAAF5B1FB7855700675095 /* CollectionView */,
 				958E14931FAE004F00DD0B65 /* TableView */,
 				958E14891FADF8C700DD0B65 /* Extensions */,
-				958E14801FADEECD00DD0B65 /* Protocols */,
-				958E147F1FADEE9F00DD0B65 /* Models */,
 			);
 			path = PDStrategy;
 			sourceTree = "<group>";
