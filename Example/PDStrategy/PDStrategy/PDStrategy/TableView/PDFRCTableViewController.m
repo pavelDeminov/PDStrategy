@@ -14,6 +14,10 @@
 
 @implementation PDFRCTableViewController
 
+- (void)setupFRC {
+    
+}
+
 /*
 class PDFRCTableViewController: PDTableViewController, NSFetchedResultsControllerDelegate {
     

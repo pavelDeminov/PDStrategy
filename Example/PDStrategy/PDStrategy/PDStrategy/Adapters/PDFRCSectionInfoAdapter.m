@@ -10,6 +10,19 @@
 
 @implementation PDFRCSectionInfoAdapter
 
++ (instancetype)adapterWith:(id <NSFetchedResultsSectionInfo>)sectionInfo {
+    PDFRCSectionInfoAdapter *adapter = [[PDFRCSectionInfoAdapter alloc] initWithFRCSectionInfo:sectionInfo];
+    return adapter;
+}
+
+- (instancetype)initWithFRCSectionInfo:(id <NSFetchedResultsSectionInfo>)sectionInfo {
+    self = [super init];
+    if (self) {
+        self.frcSectionInfo = sectionInfo;
+    }
+    return self;
+}
+
 @end
 
 /*
