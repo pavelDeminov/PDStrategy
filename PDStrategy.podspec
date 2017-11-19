@@ -26,6 +26,8 @@ This is testing pod
   s.frameworks = 'CoreData'
 
   s.public_header_files = 'Example/PDStrategy/PDStrategy/PDStrategy/PDStrategy.h'
+  s.source_files = 'Example/PDStrategy/PDStrategy/PDStrategy/PDStrategy.h'
+
 
   s.subspec 'Protocols' do |protocols|    
     protocols.source_files = "Example/PDStrategy/PDStrategy/PDStrategy/Protocols/**/*.{h,m}"
