@@ -43,7 +43,10 @@ class DateTextDataTableCell: TextDataTableCell {
     
     @objc internal func handleDatePicker(sender: UIDatePicker) {
         textField?.text = dateFormatter.string(from: sender.date)
-        //item?.date = sender.date
+        if let pdItem = itemInfo as? PDItem {
+            pdItem.date = sender.date
+        }
+        
     }
 
 }

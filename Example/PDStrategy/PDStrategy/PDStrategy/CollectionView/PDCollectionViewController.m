@@ -198,6 +198,7 @@
     
     id <PDCellInfo> cellInfo  = (id <PDCellInfo>)cell;
     cellInfo.itemInfo = itemInfo;
+    [self prepareCell:cell forIndexPath:indexPath];
     
     return cell;
 }

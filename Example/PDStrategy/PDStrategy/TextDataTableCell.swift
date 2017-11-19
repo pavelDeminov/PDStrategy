@@ -16,11 +16,13 @@ class TextDataTableCell: PDTableViewCell, UITextFieldDelegate {
     
     override func setup() {
         selectionStyle = .none
-        let builder = TitleTextFieldErrorBuilder.addTitleTextFieldError(to: contentView)
-        let titleLabel = builder.titleLabel
-        self.titleLabel = titleLabel
-        textField = builder.textField
-        errorLabel = builder.errorLabel
+        
+        weak var wSelf = self
+        TitleTextFieldErrorBuilder.addTitle(to: contentView) { (titleLabel, textField, errorLabel) in
+            wSelf?.titleLabel = titleLabel
+            wSelf?.textField = textField
+            wSelf?.errorLabel = errorLabel
+        }
         
         textField.delegate = self
         textField?.addTarget(self, action: #selector(valueChanged), for: .editingChanged)
@@ -66,6 +68,9 @@ class TextDataTableCell: PDTableViewCell, UITextFieldDelegate {
     }
     
     @objc func valueChanged() {
-        //itemInfo?.value = textField?.text;
+        if let pdItem = itemInfo as? PDItem {
+            pdItem.value = textField?.text;
+        }
+        
     }
 }

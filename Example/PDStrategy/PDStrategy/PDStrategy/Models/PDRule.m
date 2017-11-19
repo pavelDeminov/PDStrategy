@@ -10,4 +10,24 @@
 
 @implementation PDRule
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        [self setup];
+    }
+    return self;
+}
+
+- (void)setup {
+    
+}
+
+- (BOOL)validate:(id)value {
+    if (self.validationBlock) {
+        return self.validationBlock(value);
+    } else {
+        return true;
+    }
+}
+
 @end

@@ -53,7 +53,10 @@ class MoneyTextDataTableCell: TextDataTableCell {
     
     @objc override func valueChanged() {
         let raw = moneyFormatter.rawFromText(text: textField.text)
-        //item?.value = raw
+        if let pdItem = itemInfo as? PDItem {
+            pdItem.value = raw
+        }
+        
     }
 
 }

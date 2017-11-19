@@ -54,27 +54,16 @@
     return dict;
 }
 
-/*
-class PDController: NSObject {
-    
-    func errorIndexPath() -> IndexPath? {
-        
-        weak var wSelf = self
-        guard let  sectionIndex = sections?.index(where: { (section) -> Bool in
-            return section == wSelf?.errorSection
-        }) else {
-            return nil
-        }
-        
-        guard let  rowIndex = errorSection?.items?.index(where: { (item) -> Bool in
-            return item.itemHash == wSelf?.errorSection?.errorItem?.itemHash
-        }) else {
-            return nil
-        }
-        
-        return IndexPath(row: rowIndex, section: sectionIndex)
+- (nullable NSIndexPath *)errorIndexPath {
+    if (!self.errorContainer) {
+        return nil;
     }
     
+    NSInteger sectionIndex = [self.sections indexOfObject:self.errorContainer];
+    PDSection *section = self.errorContainer;
+    NSInteger rowindex = [self.errorContainer.items indexOfObject:section.errorItem];
+    
+    return [NSIndexPath indexPathForRow:rowindex inSection:sectionIndex];
 }
-*/
+
 @end

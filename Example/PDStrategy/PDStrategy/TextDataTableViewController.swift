@@ -50,6 +50,7 @@ class TextDataTableViewController: PDTableViewController {
         if controller?.state != ValidationState.valid {
             if let indexpath = controller?.errorIndexPath() {
                 tableView?.reloadRows(at: [indexpath], with: .automatic)
+                return
             }
         }
         

@@ -12,7 +12,11 @@ class SimpleCollectionCell: PDCollectionViewCell {
     var titleLabel: PDTitleLabel!
     
     override func setup() {
-        titleLabel = TitleBuilder.addTitle(to: contentView)
+        weak var wSelf = self
+        TitleBuilder.addTitle(to: contentView, with: { (titleLabel) in
+            wSelf?.titleLabel = titleLabel;
+        })
+        
         titleLabel.textAlignment = .center
         contentView.layer.borderColor = UIColor.gray.cgColor
         contentView.layer.borderWidth = 1 / UIScreen.main.scale

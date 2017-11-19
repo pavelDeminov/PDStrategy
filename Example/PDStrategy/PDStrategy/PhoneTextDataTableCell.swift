@@ -53,6 +53,9 @@ class PhoneTextDataTableCell: TextDataTableCell {
     
     @objc override func valueChanged() {
         let raw = phoneFormatter.rawFromText(text: textField.text)
-        //item?.value = raw
+        if let pdItem = itemInfo as? PDItem {
+            pdItem.value = raw
+        }
+        
     }
 }

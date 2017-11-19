@@ -12,7 +12,10 @@ class SectionsTableHeader: PDTableViewHeaderFooter {
     var titleLabel: PDTitleLabel!
     
     override func setup() {
-        titleLabel = TitleBuilder.addTitle(to: self)
+        weak var wSelf = self
+        TitleBuilder.addTitle(to: contentView, with: { (titleLabel) in
+            wSelf?.titleLabel = titleLabel;
+        })
     }
     
     override func updateUI() {

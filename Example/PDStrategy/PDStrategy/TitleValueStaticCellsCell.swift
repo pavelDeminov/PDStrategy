@@ -15,9 +15,11 @@ class TitleValueStaticCellsCell: PDTableViewCell {
     
     override func setup() {
         selectionStyle = .none
-        let titleValue = TitleValueBuilder.addTitleValue(to: contentView)
-        titleLabel = titleValue.titleLabel
-        valueLabel = titleValue.valueLabel
+        weak var wSelf = self
+        TitleValueBuilder.addTitle(to: contentView) { (titleLabel, valueLabel) in
+            wSelf?.titleLabel = titleLabel
+            wSelf?.valueLabel = valueLabel
+        }
     }
     
     override func updateUI() {
