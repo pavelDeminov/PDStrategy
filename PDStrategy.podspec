@@ -69,9 +69,4 @@ This is testing pod
     tableView.dependency 'PDStrategy/Views'
   end
 
-  s.subspec "Extensions" do | extensions |
-    extensions.source_files = "Example/PDStrategy/PDStrategy/PDStrategy/Extensions/**/*.{h,m}"
-    extensions.dependency 'PDStrategy/Protocols'
-  end
-
 end
