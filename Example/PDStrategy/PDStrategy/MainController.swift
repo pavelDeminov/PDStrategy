@@ -20,36 +20,36 @@ enum MainItemType {
 class MainController: PDController {
     
     override func setup() {
-        let section = PDSection.section()
+        let section = PDSection.instantiate()
         
         var items = [PDItem]()
         
-        var item = PDItem.item()
+        var item = PDItem.instantiate()
         item.title = "Sections Table"
         item.type = MainItemType.sections
         items.append(item)
         
-        item = PDItem.item()
+        item = PDItem.instantiate()
         item.title = "Page And Refresh"
         item.type = MainItemType.pageAndRefresh
         items.append(item)
         
-        item = PDItem.item()
+        item = PDItem.instantiate()
         item.title = "Static Cells Table"
         item.type = MainItemType.staticCellsTable
         items.append(item)
         
-        item = PDItem.item()
+        item = PDItem.instantiate()
         item.title = "Text Data Table"
         item.type = MainItemType.textDataTable
         items.append(item)
         
-        item = PDItem.item()
+        item = PDItem.instantiate()
         item.title = "FRC Table View"
         item.type = MainItemType.frcTableView
         items.append(item)
         
-        item = PDItem.item()
+        item = PDItem.instantiate()
         item.title = "Simple Collection View"
         item.type = MainItemType.simpleCollection
         items.append(item)

@@ -18,7 +18,7 @@ class PageAndRefreshViewController: PDTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        isRefreshEnabled = true
+        refreshEnabled = true
         refresh()
         // Do any additional setup after loading the view.
     }
@@ -46,7 +46,11 @@ class PageAndRefreshViewController: PDTableViewController {
                 sSelf.controller?.setup()
             }
             
-            var count = sSelf.controller?.sections?.first?.items?.count
+            guard let sectionInfo = sSelf.controller?.sections?.first as? PDSectionInfo else {
+                return
+            }
+            
+            var count = sectionInfo.items?.count
             if count == nil {
                 count = 0
             }
@@ -67,7 +71,7 @@ class PageAndRefreshViewController: PDTableViewController {
             if array.count < sSelf.limit {
                 sSelf.allDataLoaded = true
             }
-            sSelf.controller?.appendData(data: array)
+            sSelf.controller?.appendData(array)
             sSelf.currentPage += 1
             sSelf.refreshControl?.endRefreshing()
             sSelf.pageIsLoading = false
@@ -84,7 +88,7 @@ class PageAndRefreshViewController: PDTableViewController {
         return count
     }
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard !allDataLoaded && !pageIsLoading else {
             return
         }
@@ -109,7 +113,7 @@ class PageAndRefreshViewController: PDTableViewController {
         if let sectionInfo = self.sectionInfo(forSection: indexPath.section),
             controller?.sections?.count == indexPath.section + 1,
             sectionInfo.items?.count == indexPath.row {
-            return LoadingCell.reuseIdentifier
+            return LoadingCell.reuseIdentifier()
         }
         
         return cellIdentifier

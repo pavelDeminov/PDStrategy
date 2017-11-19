@@ -1,14 +1,20 @@
 //
-//  PDFRCTableViewController.swift
+//  PDFRCTableViewController.m
 //  PDStrategy
 //
-//  Created by Pavel Deminov on 08/11/2017.
+//  Created by Pavel Deminov on 19/11/2017.
 //  Copyright © 2017 Pavel Deminov. All rights reserved.
 //
 
-import UIKit
-import CoreData
+#import "PDFRCTableViewController.h"
 
+@interface PDFRCTableViewController ()
+
+@end
+
+@implementation PDFRCTableViewController
+
+/*
 class PDFRCTableViewController: PDTableViewController, NSFetchedResultsControllerDelegate {
     
     var frc: NSFetchedResultsController<NSFetchRequestResult>?
@@ -18,7 +24,7 @@ class PDFRCTableViewController: PDTableViewController, NSFetchedResultsControlle
         setupFRC()
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -88,5 +94,7 @@ class PDFRCTableViewController: PDTableViewController, NSFetchedResultsControlle
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.endUpdates()
     }
-
+    
 }
+*/
+@end

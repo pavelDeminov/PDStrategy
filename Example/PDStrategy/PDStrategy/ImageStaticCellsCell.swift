@@ -21,11 +21,11 @@ class ImageStaticCellsCell: PDTableViewCell {
     }
     
     override func updateUI() {
-        titleLabel.text = item?.title
+        titleLabel.text = itemInfo?.title
         
-        if let image = item?.image {
+        if let image = itemInfo?.image {
             imgView.image = image
-        } else if let url = item?.imageUrl {
+        } else if let url = itemInfo?.imageUrl {
             
         }
     }

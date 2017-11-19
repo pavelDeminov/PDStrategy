@@ -15,12 +15,12 @@ class SectionsTableController: PDController {
         var sections = [PDSection]()
         
         for s in 1...5 {
-            let section = PDSection.section()
+            let section = PDSection.instantiate()
             section.title = "Section" + String(s)
             
             var items = [PDItem]()
             for i in 1...10 {
-                let item = PDItem.item()
+                let item = PDItem.instantiate()
                 item.title = "item" + String (i)
                 items.append(item)
             }

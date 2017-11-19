@@ -24,24 +24,24 @@ class MainViewController: PDTableViewController {
         return UITableViewAutomaticDimension
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let item = item(for: indexPath), let type = item.type as? MainItemType else {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let item = itemInfo(for: indexPath), let type = item.type as? MainItemType else {
             return
         }
         
         switch type {
         case .sections:
-            performSegue(withIdentifier: SectionsTableViewController.segueIdentifier, sender: self)
+            performSegue(withIdentifier: SectionsTableViewController.segueIdentifier(), sender: self)
         case .pageAndRefresh:
-            performSegue(withIdentifier: PageAndRefreshViewController.segueIdentifier, sender: self)
+            performSegue(withIdentifier: PageAndRefreshViewController.segueIdentifier(), sender: self)
         case .staticCellsTable:
-            performSegue(withIdentifier: StaticCellsTableViewController.segueIdentifier, sender: self)
+            performSegue(withIdentifier: StaticCellsTableViewController.segueIdentifier(), sender: self)
         case .textDataTable :
-            performSegue(withIdentifier: TextDataTableViewController.segueIdentifier, sender: self)
+            performSegue(withIdentifier: TextDataTableViewController.segueIdentifier(), sender: self)
         case .frcTableView :
-            performSegue(withIdentifier: FRCTableViewController.segueIdentifier, sender: self)
+            performSegue(withIdentifier: FRCTableViewController.segueIdentifier(), sender: self)
         case .simpleCollection :
-            performSegue(withIdentifier: SimpleCollectionViewController.segueIdentifier, sender: self)
+            performSegue(withIdentifier: SimpleCollectionViewController.segueIdentifier(), sender: self)
         }
     }
 }

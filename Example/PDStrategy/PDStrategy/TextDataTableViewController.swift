@@ -15,30 +15,30 @@ class TextDataTableViewController: PDTableViewController {
     }
     
     override func cellIdentifier(for indexPath: IndexPath) -> String {
-        guard let item = item(for: indexPath), let type = item.type as? TextDataTableType else {
+        guard let item = itemInfo(for: indexPath), let type = item.type as? TextDataTableType else {
             return super.cellIdentifier(for: indexPath)
         }
         
         switch type {
         case .text:
-            return TextDataTableCell.reuseIdentifier
+            return TextDataTableCell.reuseIdentifier()
         case .date:
-            return DateTextDataTableCell.reuseIdentifier
+            return DateTextDataTableCell.reuseIdentifier()
         case .phone:
-            return PhoneTextDataTableCell.reuseIdentifier
+            return PhoneTextDataTableCell.reuseIdentifier()
         case .money:
-            return MoneyTextDataTableCell.reuseIdentifier
+            return MoneyTextDataTableCell.reuseIdentifier()
         case .number:
-            return NumberTextDataTableCell.reuseIdentifier
+            return NumberTextDataTableCell.reuseIdentifier()
         case .validate:
-            return ButtonTextDataTableCell.reuseIdentifier
+            return ButtonTextDataTableCell.reuseIdentifier()
         default:
-            return TitleStaticCellsCell.reuseIdentifier
+            return TitleStaticCellsCell.reuseIdentifier()
         }
     }
     
-    override func prepareCell(cell: UITableViewCell, for indexPath: IndexPath) {
-        
+    
+    override func prepare(_ cell: UITableViewCell, for IndexPath: IndexPath) {
         if let buttonCell = cell as? ButtonTextDataTableCell {
             buttonCell.confirmButton.addTarget(self, action: #selector(validate(button:)), for: .touchUpInside)
         }
@@ -47,9 +47,9 @@ class TextDataTableViewController: PDTableViewController {
     @objc func validate(button: UIButton) {
         
         controller?.validate()
-        if controller?.validationState != .valid {
+        if controller?.state != ValidationState.valid {
             if let indexpath = controller?.errorIndexPath() {
-                tableView.reloadRows(at: [indexpath], with: .automatic)
+                tableView?.reloadRows(at: [indexpath], with: .automatic)
             }
         }
         

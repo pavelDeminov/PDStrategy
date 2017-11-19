@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 typealias ValidationBlock = (_ value: Any) -> Bool
 
 class PDRule: NSObject {
@@ -23,3 +24,4 @@ class PDRule: NSObject {
         }
     }
 }
+

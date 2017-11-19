@@ -34,7 +34,7 @@ class MoneyTextDataTableCell: TextDataTableCell {
     
     override func updateUI() {
         super.updateUI()
-        if let value = item?.value as? String {
+        if let value = itemInfo?.value as? String {
             moneyFormatter.applyText(text: value, textField: textField)
         } else {
             moneyFormatter.applyText(text: "", textField: textField)
@@ -53,7 +53,7 @@ class MoneyTextDataTableCell: TextDataTableCell {
     
     @objc override func valueChanged() {
         let raw = moneyFormatter.rawFromText(text: textField.text)
-        item?.value = raw
+        //item?.value = raw
     }
 
 }

@@ -27,25 +27,25 @@ class StaticCellsTableViewController: PDTableViewController {
     }
     
     override func cellIdentifier(for indexPath: IndexPath) -> String {
-        guard let item = item(for: indexPath), let type = item.type as? StaticCellsTableType else {
+        guard let item = itemInfo(for: indexPath), let type = item.type as? StaticCellsTableType else {
             return super.cellIdentifier(for: indexPath)
         }
         
         switch type {
         case .title:
-            return TitleStaticCellsCell.reuseIdentifier
+            return TitleStaticCellsCell.reuseIdentifier()
         case .titleValue:
-            return TitleValueStaticCellsCell.reuseIdentifier
+            return TitleValueStaticCellsCell.reuseIdentifier()
         case .titleValue2:
-            return TitleValue2StaticCellsCell.reuseIdentifier
+            return TitleValue2StaticCellsCell.reuseIdentifier()
         case .titleValueDate:
-            return DateStaticCellsCell.reuseIdentifier
+            return DateStaticCellsCell.reuseIdentifier()
         case .titleValueDate2:
-            return Date2StaticCellsCell.reuseIdentifier
+            return Date2StaticCellsCell.reuseIdentifier()
         case .titleValueDate3:
-            return Date3StaticCellsCell.reuseIdentifier
+            return Date3StaticCellsCell.reuseIdentifier()
         case .titleImage:
-            return ImageStaticCellsCell.reuseIdentifier
+            return ImageStaticCellsCell.reuseIdentifier()
             
 //        default:
 //            return TitleStaticCellsCell.reuseIdentifier

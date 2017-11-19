@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9501D6781FC0C64200214565 /* PDItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9501D6771FC0C64200214565 /* PDItem.m */; };
+		9501D67B1FC0C71500214565 /* PDRule.m in Sources */ = {isa = PBXBuildFile; fileRef = 9501D67A1FC0C71500214565 /* PDRule.m */; };
+		9501D67F1FC0C8EE00214565 /* PDController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9501D67E1FC0C8EE00214565 /* PDController.m */; };
+		9501D6821FC0C95A00214565 /* PDSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9501D6811FC0C95A00214565 /* PDSection.m */; };
+		9501D6851FC0CF3500214565 /* PDFRCSectionInfoAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9501D6841FC0CF3500214565 /* PDFRCSectionInfoAdapter.m */; };
+		9501D6881FC0CFD500214565 /* PDTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9501D6871FC0CFD500214565 /* PDTableViewCell.m */; };
+		95044BFA1FC0D2F30038C45F /* PDTableViewHeaderFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 95044BF91FC0D2F30038C45F /* PDTableViewHeaderFooter.m */; };
+		95044BFD1FC0D38D0038C45F /* PDTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95044BFC1FC0D38D0038C45F /* PDTableViewController.m */; };
+		95044C001FC0D42F0038C45F /* PDFRCTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95044BFF1FC0D42F0038C45F /* PDFRCTableViewController.m */; };
+		95044C031FC0D4960038C45F /* PDCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95044C021FC0D4960038C45F /* PDCollectionViewController.m */; };
+		95044C061FC0D4DD0038C45F /* PDCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95044C051FC0D4DD0038C45F /* PDCollectionViewCell.m */; };
 		95801E831FAE4DFD00E3FEA8 /* SectionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95801E821FAE4DFD00E3FEA8 /* SectionsTableViewController.swift */; };
 		95801E851FAE50A600E3FEA8 /* SectionsTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95801E841FAE50A600E3FEA8 /* SectionsTableController.swift */; };
 		95801E871FAE555300E3FEA8 /* SectionsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95801E861FAE555300E3FEA8 /* SectionsTableCell.swift */; };
@@ -44,17 +55,6 @@
 		95801EE51FB0668900E3FEA8 /* TextDataTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95801EE41FB0668900E3FEA8 /* TextDataTableCell.swift */; };
 		95801EE71FB0A0C600E3FEA8 /* DateTextDataTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95801EE61FB0A0C600E3FEA8 /* DateTextDataTableCell.swift */; };
 		958C019E1FBB130A003AF364 /* DateSimpleCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958C019D1FBB130A003AF364 /* DateSimpleCollectionCell.swift */; };
-		958E14841FADEF5000DD0B65 /* PDItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958E14831FADEF5000DD0B65 /* PDItem.swift */; };
-		958E14861FADEF6400DD0B65 /* PDItemInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958E14851FADEF6400DD0B65 /* PDItemInfo.swift */; };
-		958E14881FADF2DF00DD0B65 /* PDRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958E14871FADF2DF00DD0B65 /* PDRule.swift */; };
-		958E148D1FADFB4500DD0B65 /* PDSectionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958E148C1FADFB4500DD0B65 /* PDSectionInfo.swift */; };
-		958E148F1FADFBC200DD0B65 /* PDSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958E148E1FADFBC200DD0B65 /* PDSection.swift */; };
-		958E14911FADFEDD00DD0B65 /* PDController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958E14901FADFEDD00DD0B65 /* PDController.swift */; };
-		958E14951FAE00D800DD0B65 /* PDCellInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958E14941FAE00D800DD0B65 /* PDCellInfo.swift */; };
-		958E14971FAE00EF00DD0B65 /* PDTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958E14961FAE00EF00DD0B65 /* PDTableViewCell.swift */; };
-		958E14991FAE17F300DD0B65 /* PDHeaderFooterInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958E14981FAE17F300DD0B65 /* PDHeaderFooterInfo.swift */; };
-		958E149B1FAE182200DD0B65 /* PDTableViewHeaderFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958E149A1FAE182200DD0B65 /* PDTableViewHeaderFooter.swift */; };
-		958E149D1FAE191B00DD0B65 /* PDTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958E149C1FAE191B00DD0B65 /* PDTableViewController.swift */; };
 		958E14A01FAE19AE00DD0B65 /* PDRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958E149F1FAE19AE00DD0B65 /* PDRefreshControl.swift */; };
 		958E14AA1FAE2DB900DD0B65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 958E14A61FAE2DB900DD0B65 /* LaunchScreen.storyboard */; };
 		958E14AB1FAE2DB900DD0B65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 958E14A81FAE2DB900DD0B65 /* Main.storyboard */; };
@@ -69,28 +69,48 @@
 		959424D31FB6E13B008B5B04 /* PDConfirmButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959424D21FB6E13B008B5B04 /* PDConfirmButton.swift */; };
 		959424D51FB6E1E3008B5B04 /* PDButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959424D41FB6E1E3008B5B04 /* PDButton.swift */; };
 		959424D71FB6E255008B5B04 /* ButtonBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959424D61FB6E255008B5B04 /* ButtonBuilder.swift */; };
-		95BAAF5D1FB7859700675095 /* PDCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BAAF5C1FB7859700675095 /* PDCollectionViewController.swift */; };
 		95BAAF5F1FB78A8300675095 /* SimpleCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BAAF5E1FB78A8300675095 /* SimpleCollectionViewController.swift */; };
 		95BAAF611FB839E100675095 /* SimpleCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BAAF601FB839E100675095 /* SimpleCollectionController.swift */; };
-		95BAAF641FB83F9900675095 /* PDCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BAAF631FB83F9900675095 /* PDCollectionViewCell.swift */; };
 		95BAAF661FB83FEC00675095 /* SimpleCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BAAF651FB83FEC00675095 /* SimpleCollectionCell.swift */; };
 		95FA5D641FB0A7C7002C5DA4 /* PhoneTextDataTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FA5D631FB0A7C7002C5DA4 /* PhoneTextDataTableCell.swift */; };
 		95FA5D681FB10F7E002C5DA4 /* TextFieldFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FA5D671FB10F7E002C5DA4 /* TextFieldFormatter.swift */; };
 		95FA5D6A1FB1BA4A002C5DA4 /* MoneyTextDataTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FA5D691FB1BA4A002C5DA4 /* MoneyTextDataTableCell.swift */; };
 		95FA5D6C1FB1C14D002C5DA4 /* NumberTextDataTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FA5D6B1FB1C14D002C5DA4 /* NumberTextDataTableCell.swift */; };
-		95FA5D6E1FB24BAA002C5DA4 /* PDFRCTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FA5D6D1FB24BAA002C5DA4 /* PDFRCTableViewController.swift */; };
-		95FA5D711FB24CA4002C5DA4 /* PDFRCSectionInfoAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FA5D701FB24CA4002C5DA4 /* PDFRCSectionInfoAdapter.swift */; };
 		95FA5D731FB2545C002C5DA4 /* FRCTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FA5D721FB2545C002C5DA4 /* FRCTableViewController.swift */; };
 		95FA5D761FB255D5002C5DA4 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95FA5D741FB255D5002C5DA4 /* Model.xcdatamodeld */; };
 		95FA5D781FB25D1F002C5DA4 /* NSManagedObject+PDStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FA5D771FB25D1E002C5DA4 /* NSManagedObject+PDStrategy.swift */; };
 		95FA5D7B1FB25F16002C5DA4 /* FRCTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FA5D7A1FB25F16002C5DA4 /* FRCTableCell.swift */; };
 		95FA5D7D1FB260F8002C5DA4 /* Animal+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FA5D7C1FB260F8002C5DA4 /* Animal+Extension.swift */; };
-		95FA5D7F1FB33644002C5DA4 /* PDManagedItemInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FA5D7E1FB33644002C5DA4 /* PDManagedItemInfo.swift */; };
 		CAA5EFD92DA0A2E51F674C8E /* Pods_PDStrategy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E67EAF2A6B9EC0A9965E95C /* Pods_PDStrategy.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3C258B93A26BA615ADDC8944 /* Pods-PDStrategy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PDStrategy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PDStrategy/Pods-PDStrategy.debug.xcconfig"; sourceTree = "<group>"; };
+		9501D6751FC0C4F800214565 /* PDSectionInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDSectionInfo.h; sourceTree = "<group>"; };
+		9501D6761FC0C64200214565 /* PDItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDItem.h; sourceTree = "<group>"; };
+		9501D6771FC0C64200214565 /* PDItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDItem.m; sourceTree = "<group>"; };
+		9501D6791FC0C71500214565 /* PDRule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDRule.h; sourceTree = "<group>"; };
+		9501D67A1FC0C71500214565 /* PDRule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDRule.m; sourceTree = "<group>"; };
+		9501D67D1FC0C8EE00214565 /* PDController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDController.h; sourceTree = "<group>"; };
+		9501D67E1FC0C8EE00214565 /* PDController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDController.m; sourceTree = "<group>"; };
+		9501D6801FC0C95A00214565 /* PDSection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDSection.h; sourceTree = "<group>"; };
+		9501D6811FC0C95A00214565 /* PDSection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDSection.m; sourceTree = "<group>"; };
+		9501D6831FC0CF3500214565 /* PDFRCSectionInfoAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDFRCSectionInfoAdapter.h; sourceTree = "<group>"; };
+		9501D6841FC0CF3500214565 /* PDFRCSectionInfoAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDFRCSectionInfoAdapter.m; sourceTree = "<group>"; };
+		9501D6861FC0CFD500214565 /* PDTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDTableViewCell.h; sourceTree = "<group>"; };
+		9501D6871FC0CFD500214565 /* PDTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDTableViewCell.m; sourceTree = "<group>"; };
+		9501D6891FC0D01F00214565 /* PDCellInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDCellInfo.h; sourceTree = "<group>"; };
+		9501D68A1FC0D0C800214565 /* PDHeaderFooterInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDHeaderFooterInfo.h; sourceTree = "<group>"; };
+		95044BF81FC0D2F30038C45F /* PDTableViewHeaderFooter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDTableViewHeaderFooter.h; sourceTree = "<group>"; };
+		95044BF91FC0D2F30038C45F /* PDTableViewHeaderFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDTableViewHeaderFooter.m; sourceTree = "<group>"; };
+		95044BFB1FC0D38D0038C45F /* PDTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDTableViewController.h; sourceTree = "<group>"; };
+		95044BFC1FC0D38D0038C45F /* PDTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDTableViewController.m; sourceTree = "<group>"; };
+		95044BFE1FC0D42F0038C45F /* PDFRCTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDFRCTableViewController.h; sourceTree = "<group>"; };
+		95044BFF1FC0D42F0038C45F /* PDFRCTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDFRCTableViewController.m; sourceTree = "<group>"; };
+		95044C011FC0D4960038C45F /* PDCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDCollectionViewController.h; sourceTree = "<group>"; };
+		95044C021FC0D4960038C45F /* PDCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDCollectionViewController.m; sourceTree = "<group>"; };
+		95044C041FC0D4DD0038C45F /* PDCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDCollectionViewCell.h; sourceTree = "<group>"; };
+		95044C051FC0D4DD0038C45F /* PDCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDCollectionViewCell.m; sourceTree = "<group>"; };
 		95801E821FAE4DFD00E3FEA8 /* SectionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionsTableViewController.swift; sourceTree = "<group>"; };
 		95801E841FAE50A600E3FEA8 /* SectionsTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionsTableController.swift; sourceTree = "<group>"; };
 		95801E861FAE555300E3FEA8 /* SectionsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionsTableCell.swift; sourceTree = "<group>"; };
@@ -129,17 +149,6 @@
 		95801EE61FB0A0C600E3FEA8 /* DateTextDataTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTextDataTableCell.swift; sourceTree = "<group>"; };
 		958C019D1FBB130A003AF364 /* DateSimpleCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSimpleCollectionCell.swift; sourceTree = "<group>"; };
 		958E14681FADEE1F00DD0B65 /* PDStrategy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PDStrategy.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		958E14831FADEF5000DD0B65 /* PDItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDItem.swift; sourceTree = "<group>"; };
-		958E14851FADEF6400DD0B65 /* PDItemInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDItemInfo.swift; sourceTree = "<group>"; };
-		958E14871FADF2DF00DD0B65 /* PDRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDRule.swift; sourceTree = "<group>"; };
-		958E148C1FADFB4500DD0B65 /* PDSectionInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDSectionInfo.swift; sourceTree = "<group>"; };
-		958E148E1FADFBC200DD0B65 /* PDSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDSection.swift; sourceTree = "<group>"; };
-		958E14901FADFEDD00DD0B65 /* PDController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDController.swift; sourceTree = "<group>"; };
-		958E14941FAE00D800DD0B65 /* PDCellInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDCellInfo.swift; sourceTree = "<group>"; };
-		958E14961FAE00EF00DD0B65 /* PDTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDTableViewCell.swift; sourceTree = "<group>"; };
-		958E14981FAE17F300DD0B65 /* PDHeaderFooterInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDHeaderFooterInfo.swift; sourceTree = "<group>"; };
-		958E149A1FAE182200DD0B65 /* PDTableViewHeaderFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDTableViewHeaderFooter.swift; sourceTree = "<group>"; };
-		958E149C1FAE191B00DD0B65 /* PDTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDTableViewController.swift; sourceTree = "<group>"; };
 		958E149F1FAE19AE00DD0B65 /* PDRefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDRefreshControl.swift; sourceTree = "<group>"; };
 		958E14A71FAE2DB900DD0B65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		958E14A91FAE2DB900DD0B65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -154,23 +163,21 @@
 		959424D21FB6E13B008B5B04 /* PDConfirmButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDConfirmButton.swift; sourceTree = "<group>"; };
 		959424D41FB6E1E3008B5B04 /* PDButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDButton.swift; sourceTree = "<group>"; };
 		959424D61FB6E255008B5B04 /* ButtonBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBuilder.swift; sourceTree = "<group>"; };
-		95BAAF5C1FB7859700675095 /* PDCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDCollectionViewController.swift; sourceTree = "<group>"; };
+		95A6667B1FC0BD9900486244 /* PDStrategy-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PDStrategy-Bridging-Header.h"; sourceTree = "<group>"; };
+		95A6667F1FC0BE1100486244 /* PDStrategy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDStrategy.h; sourceTree = "<group>"; };
+		95A666801FC0BEA400486244 /* PDItemInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDItemInfo.h; sourceTree = "<group>"; };
 		95BAAF5E1FB78A8300675095 /* SimpleCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCollectionViewController.swift; sourceTree = "<group>"; };
 		95BAAF601FB839E100675095 /* SimpleCollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCollectionController.swift; sourceTree = "<group>"; };
-		95BAAF631FB83F9900675095 /* PDCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDCollectionViewCell.swift; sourceTree = "<group>"; };
 		95BAAF651FB83FEC00675095 /* SimpleCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCollectionCell.swift; sourceTree = "<group>"; };
 		95FA5D631FB0A7C7002C5DA4 /* PhoneTextDataTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneTextDataTableCell.swift; sourceTree = "<group>"; };
 		95FA5D671FB10F7E002C5DA4 /* TextFieldFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldFormatter.swift; sourceTree = "<group>"; };
 		95FA5D691FB1BA4A002C5DA4 /* MoneyTextDataTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTextDataTableCell.swift; sourceTree = "<group>"; };
 		95FA5D6B1FB1C14D002C5DA4 /* NumberTextDataTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTextDataTableCell.swift; sourceTree = "<group>"; };
-		95FA5D6D1FB24BAA002C5DA4 /* PDFRCTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFRCTableViewController.swift; sourceTree = "<group>"; };
-		95FA5D701FB24CA4002C5DA4 /* PDFRCSectionInfoAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFRCSectionInfoAdapter.swift; sourceTree = "<group>"; };
 		95FA5D721FB2545C002C5DA4 /* FRCTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FRCTableViewController.swift; sourceTree = "<group>"; };
 		95FA5D751FB255D5002C5DA4 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		95FA5D771FB25D1E002C5DA4 /* NSManagedObject+PDStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+PDStrategy.swift"; sourceTree = "<group>"; };
 		95FA5D7A1FB25F16002C5DA4 /* FRCTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FRCTableCell.swift; sourceTree = "<group>"; };
 		95FA5D7C1FB260F8002C5DA4 /* Animal+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Animal+Extension.swift"; sourceTree = "<group>"; };
-		95FA5D7E1FB33644002C5DA4 /* PDManagedItemInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDManagedItemInfo.swift; sourceTree = "<group>"; };
 		9E67EAF2A6B9EC0A9965E95C /* Pods_PDStrategy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PDStrategy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C26885CC900213C23A0A35DF /* Pods-PDStrategy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PDStrategy.release.xcconfig"; path = "Pods/Target Support Files/Pods-PDStrategy/Pods-PDStrategy.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -338,6 +345,7 @@
 				95BAAF5B1FB7855700675095 /* CollectionView */,
 				958E14931FAE004F00DD0B65 /* TableView */,
 				958E14891FADF8C700DD0B65 /* Extensions */,
+				95A6667F1FC0BE1100486244 /* PDStrategy.h */,
 			);
 			path = PDStrategy;
 			sourceTree = "<group>";
@@ -345,10 +353,14 @@
 		958E147F1FADEE9F00DD0B65 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				958E14831FADEF5000DD0B65 /* PDItem.swift */,
-				958E14871FADF2DF00DD0B65 /* PDRule.swift */,
-				958E148E1FADFBC200DD0B65 /* PDSection.swift */,
-				958E14901FADFEDD00DD0B65 /* PDController.swift */,
+				9501D6761FC0C64200214565 /* PDItem.h */,
+				9501D6771FC0C64200214565 /* PDItem.m */,
+				9501D6791FC0C71500214565 /* PDRule.h */,
+				9501D67A1FC0C71500214565 /* PDRule.m */,
+				9501D67D1FC0C8EE00214565 /* PDController.h */,
+				9501D67E1FC0C8EE00214565 /* PDController.m */,
+				9501D6801FC0C95A00214565 /* PDSection.h */,
+				9501D6811FC0C95A00214565 /* PDSection.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -356,11 +368,10 @@
 		958E14801FADEECD00DD0B65 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				958E14851FADEF6400DD0B65 /* PDItemInfo.swift */,
-				95FA5D7E1FB33644002C5DA4 /* PDManagedItemInfo.swift */,
-				958E148C1FADFB4500DD0B65 /* PDSectionInfo.swift */,
-				958E14941FAE00D800DD0B65 /* PDCellInfo.swift */,
-				958E14981FAE17F300DD0B65 /* PDHeaderFooterInfo.swift */,
+				95A666801FC0BEA400486244 /* PDItemInfo.h */,
+				9501D6751FC0C4F800214565 /* PDSectionInfo.h */,
+				9501D6891FC0D01F00214565 /* PDCellInfo.h */,
+				9501D68A1FC0D0C800214565 /* PDHeaderFooterInfo.h */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -377,10 +388,14 @@
 		958E14931FAE004F00DD0B65 /* TableView */ = {
 			isa = PBXGroup;
 			children = (
-				958E14961FAE00EF00DD0B65 /* PDTableViewCell.swift */,
-				958E149A1FAE182200DD0B65 /* PDTableViewHeaderFooter.swift */,
-				958E149C1FAE191B00DD0B65 /* PDTableViewController.swift */,
-				95FA5D6D1FB24BAA002C5DA4 /* PDFRCTableViewController.swift */,
+				9501D6861FC0CFD500214565 /* PDTableViewCell.h */,
+				9501D6871FC0CFD500214565 /* PDTableViewCell.m */,
+				95044BF81FC0D2F30038C45F /* PDTableViewHeaderFooter.h */,
+				95044BF91FC0D2F30038C45F /* PDTableViewHeaderFooter.m */,
+				95044BFB1FC0D38D0038C45F /* PDTableViewController.h */,
+				95044BFC1FC0D38D0038C45F /* PDTableViewController.m */,
+				95044BFE1FC0D42F0038C45F /* PDFRCTableViewController.h */,
+				95044BFF1FC0D42F0038C45F /* PDFRCTableViewController.m */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -406,6 +421,7 @@
 		958E14B51FAE2E0F00DD0B65 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				95A6667B1FC0BD9900486244 /* PDStrategy-Bridging-Header.h */,
 				958E14AC1FAE2DC800DD0B65 /* AppDelegate.swift */,
 				958E14AD1FAE2DC800DD0B65 /* Info.plist */,
 			);
@@ -477,8 +493,10 @@
 		95BAAF5B1FB7855700675095 /* CollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				95BAAF5C1FB7859700675095 /* PDCollectionViewController.swift */,
-				95BAAF631FB83F9900675095 /* PDCollectionViewCell.swift */,
+				95044C011FC0D4960038C45F /* PDCollectionViewController.h */,
+				95044C021FC0D4960038C45F /* PDCollectionViewController.m */,
+				95044C041FC0D4DD0038C45F /* PDCollectionViewCell.h */,
+				95044C051FC0D4DD0038C45F /* PDCollectionViewCell.m */,
 			);
 			path = CollectionView;
 			sourceTree = "<group>";
@@ -511,7 +529,8 @@
 		95FA5D6F1FB24C8D002C5DA4 /* Adapters */ = {
 			isa = PBXGroup;
 			children = (
-				95FA5D701FB24CA4002C5DA4 /* PDFRCSectionInfoAdapter.swift */,
+				9501D6831FC0CF3500214565 /* PDFRCSectionInfoAdapter.h */,
+				9501D6841FC0CF3500214565 /* PDFRCSectionInfoAdapter.m */,
 			);
 			path = Adapters;
 			sourceTree = "<group>";
@@ -559,6 +578,7 @@
 				TargetAttributes = {
 					958E14671FADEE1F00DD0B65 = {
 						CreatedOnToolsVersion = 9.1;
+						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -648,18 +668,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				958E14951FAE00D800DD0B65 /* PDCellInfo.swift in Sources */,
 				95801EE51FB0668900E3FEA8 /* TextDataTableCell.swift in Sources */,
-				958E14841FADEF5000DD0B65 /* PDItem.swift in Sources */,
 				95BAAF661FB83FEC00675095 /* SimpleCollectionCell.swift in Sources */,
-				958E14881FADF2DF00DD0B65 /* PDRule.swift in Sources */,
-				95BAAF5D1FB7859700675095 /* PDCollectionViewController.swift in Sources */,
 				95801EE01FB064BE00E3FEA8 /* PDErrorLabel.swift in Sources */,
 				95FA5D731FB2545C002C5DA4 /* FRCTableViewController.swift in Sources */,
-				958E149B1FAE182200DD0B65 /* PDTableViewHeaderFooter.swift in Sources */,
 				95801EE71FB0A0C600E3FEA8 /* DateTextDataTableCell.swift in Sources */,
 				958E14BC1FAE2E8500DD0B65 /* MainController.swift in Sources */,
-				95FA5D711FB24CA4002C5DA4 /* PDFRCSectionInfoAdapter.swift in Sources */,
 				95801EB51FAF511800E3FEA8 /* TitleValueDateBuilder.swift in Sources */,
 				95BAAF5F1FB78A8300675095 /* SimpleCollectionViewController.swift in Sources */,
 				95801E9A1FAEE76100E3FEA8 /* PageAndRefreshCell.swift in Sources */,
@@ -667,13 +681,11 @@
 				95801EA91FAF31CD00E3FEA8 /* PDLabel.swift in Sources */,
 				959424D11FB6E0F8008B5B04 /* ButtonTextDataTableCell.swift in Sources */,
 				95801EE21FB065B000E3FEA8 /* PDTextField.swift in Sources */,
-				958E148F1FADFBC200DD0B65 /* PDSection.swift in Sources */,
-				95BAAF641FB83F9900675095 /* PDCollectionViewCell.swift in Sources */,
 				95801E851FAE50A600E3FEA8 /* SectionsTableController.swift in Sources */,
 				95801ECB1FAF785400E3FEA8 /* Date3StaticCellsCell.swift in Sources */,
-				958E14991FAE17F300DD0B65 /* PDHeaderFooterInfo.swift in Sources */,
 				95801ED21FAF7BDF00E3FEA8 /* TitleImageBuilder.swift in Sources */,
 				95801EC71FAF782300E3FEA8 /* DateStaticCellsCell.swift in Sources */,
+				9501D6881FC0CFD500214565 /* PDTableViewCell.m in Sources */,
 				95801ED41FAF7C3700E3FEA8 /* PDImageView.swift in Sources */,
 				95801ECE1FAF78CD00E3FEA8 /* LoadingCell.swift in Sources */,
 				95801EAD1FAF3E8800E3FEA8 /* StaticCellsTableViewController.swift in Sources */,
@@ -684,45 +696,48 @@
 				95801EC91FAF783B00E3FEA8 /* Date2StaticCellsCell.swift in Sources */,
 				95801EB31FAF4C8500E3FEA8 /* PDDateLabel.swift in Sources */,
 				95801EA71FAF308F00E3FEA8 /* PDValueLabel.swift in Sources */,
+				9501D6821FC0C95A00214565 /* PDSection.m in Sources */,
 				95801E961FAEE4E200E3FEA8 /* PageAndRefreshViewController.swift in Sources */,
 				95FA5D7B1FB25F16002C5DA4 /* FRCTableCell.swift in Sources */,
+				9501D67F1FC0C8EE00214565 /* PDController.m in Sources */,
 				95801E8F1FAE5C9100E3FEA8 /* SectionsTableHeader.swift in Sources */,
 				959424D51FB6E1E3008B5B04 /* PDButton.swift in Sources */,
 				958E14C71FAE40E000DD0B65 /* TableViewCell+PDStrategy.swift in Sources */,
 				959424D31FB6E13B008B5B04 /* PDConfirmButton.swift in Sources */,
 				958E14C51FAE3B0000DD0B65 /* MainCell.swift in Sources */,
 				959424D71FB6E255008B5B04 /* ButtonBuilder.swift in Sources */,
+				95044C031FC0D4960038C45F /* PDCollectionViewController.m in Sources */,
 				95FA5D6A1FB1BA4A002C5DA4 /* MoneyTextDataTableCell.swift in Sources */,
 				95801E9D1FAEE89100E3FEA8 /* PageAndResfreshModel.swift in Sources */,
-				958E14971FAE00EF00DD0B65 /* PDTableViewCell.swift in Sources */,
 				95801EC51FAF77EE00E3FEA8 /* TitleValue2StaticCellsCell.swift in Sources */,
 				958E14B21FAE2DC800DD0B65 /* MainViewController.swift in Sources */,
 				95801E871FAE555300E3FEA8 /* SectionsTableCell.swift in Sources */,
+				95044BFD1FC0D38D0038C45F /* PDTableViewController.m in Sources */,
+				95044BFA1FC0D2F30038C45F /* PDTableViewHeaderFooter.m in Sources */,
 				95801EAB1FAF327400E3FEA8 /* TitleValueBuilder.swift in Sources */,
 				95801E831FAE4DFD00E3FEA8 /* SectionsTableViewController.swift in Sources */,
 				95801ED01FAF7A5000E3FEA8 /* ImageStaticCellsCell.swift in Sources */,
 				95FA5D7D1FB260F8002C5DA4 /* Animal+Extension.swift in Sources */,
-				958E148D1FADFB4500DD0B65 /* PDSectionInfo.swift in Sources */,
 				95801EDC1FB062B900E3FEA8 /* TextDataTableController.swift in Sources */,
+				9501D67B1FC0C71500214565 /* PDRule.m in Sources */,
 				95801E941FAE675700E3FEA8 /* TitleBuilder.swift in Sources */,
 				95801EA11FAF08E100E3FEA8 /* PDActivityIndicatorView.swift in Sources */,
 				95FA5D761FB255D5002C5DA4 /* Model.xcdatamodeld in Sources */,
+				9501D6851FC0CF3500214565 /* PDFRCSectionInfoAdapter.m in Sources */,
+				95044C061FC0D4DD0038C45F /* PDCollectionViewCell.m in Sources */,
 				95801E911FAE5FBC00E3FEA8 /* PDTitleLabel.swift in Sources */,
-				95FA5D7F1FB33644002C5DA4 /* PDManagedItemInfo.swift in Sources */,
+				95044C001FC0D42F0038C45F /* PDFRCTableViewController.m in Sources */,
 				95801EC31FAF779200E3FEA8 /* TitleValueStaticCellsCell.swift in Sources */,
 				958E14B01FAE2DC800DD0B65 /* AppDelegate.swift in Sources */,
 				95801EAF1FAF3F0E00E3FEA8 /* StaticCellsTableController.swift in Sources */,
 				95801EC11FAF776400E3FEA8 /* TitleStaticCellsCell.swift in Sources */,
 				95FA5D781FB25D1F002C5DA4 /* NSManagedObject+PDStrategy.swift in Sources */,
-				95FA5D6E1FB24BAA002C5DA4 /* PDFRCTableViewController.swift in Sources */,
 				95801EDA1FB0618A00E3FEA8 /* TextDataTableViewController.swift in Sources */,
 				95FA5D641FB0A7C7002C5DA4 /* PhoneTextDataTableCell.swift in Sources */,
-				958E14911FADFEDD00DD0B65 /* PDController.swift in Sources */,
-				958E149D1FAE191B00DD0B65 /* PDTableViewController.swift in Sources */,
 				95801EDE1FB0646900E3FEA8 /* TitleTextFieldErrorBuilder.swift in Sources */,
 				958E14A01FAE19AE00DD0B65 /* PDRefreshControl.swift in Sources */,
+				9501D6781FC0C64200214565 /* PDItem.m in Sources */,
 				95FA5D681FB10F7E002C5DA4 /* TextFieldFormatter.swift in Sources */,
-				958E14861FADEF6400DD0B65 /* PDItemInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -861,6 +876,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A4Q293H75S;
 				INFOPLIST_FILE = PDStrategy/Info.plist;
@@ -868,6 +884,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pavelDeminov.PDStrategy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PDStrategy/PDStrategy-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -879,6 +897,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A4Q293H75S;
 				INFOPLIST_FILE = PDStrategy/Info.plist;
@@ -886,6 +905,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pavelDeminov.PDStrategy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PDStrategy/PDStrategy-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -12,7 +12,6 @@ class SimpleCollectionViewController: PDCollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        stretchSpaceBetweenElements = true
         // Do any additional setup after loading the view.
     }
 
@@ -21,23 +20,25 @@ class SimpleCollectionViewController: PDCollectionViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func cellSizeForItemAt(indexPath: IndexPath) -> CGSize {
-        return dynamicCellSizeForItemAt(indexPath: indexPath, for: 1)
+    
+    override func cellSizeForItem(at indexPath: IndexPath!) -> CGSize {
+        return dynamicCellSize(forItem: indexPath, itemsCount: 1)
     }
     
+    
     override func cellIdentifier(for indexPath: IndexPath) -> String {
-        guard let item = item(for: indexPath), let type = item.type as? StaticCellsTableType else {
+        guard let item = itemInfo(for: indexPath), let type = item.type as? StaticCellsTableType else {
             return super.cellIdentifier(for: indexPath)
         }
         
         switch type {
         case .titleValueDate:
-            return DateSimpleCollectionCell.reuseIdentifier
+            return DateSimpleCollectionCell.reuseIdentifier()
         default:
             return super.cellIdentifier(for: indexPath)
         }
     }
-    
+        
     override func defaultCellSize() -> CGSize {
         return CGSize(width: 50, height: 50)
     }

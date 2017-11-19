@@ -21,23 +21,23 @@ enum TextDataTableType {
 
 class TextDataTableController: PDController {
     override func setup() {
-        let section = PDSection.section()
+        let section = PDSection.instantiate()
         
         var items = [PDItem]()
         
-        var item = PDItem.item()
+        var item = PDItem.instantiate()
         item.type = TextDataTableType.text
         item.placeholder = "Plane text"
         items.append(item)
         
-        item = PDItem.item()
+        item = PDItem.instantiate()
         item.title = "Date"
         item.type = TextDataTableType.date
         item.placeholder = "Date"
         item.date = Date()
         items.append(item)
         
-        item = PDItem.item()
+        item = PDItem.instantiate()
         item.title = "Phone"
         item.apiKey = "Phone"
         item.type = TextDataTableType.phone
@@ -50,17 +50,17 @@ class TextDataTableController: PDController {
         }
         item.rules = [phoneRule]
         
-        item = PDItem.item()
+        item = PDItem.instantiate()
         item.title = "Amount"
         item.type = TextDataTableType.money
         items.append(item)
         
-        item = PDItem.item()
+        item = PDItem.instantiate()
         item.title = "Number"
         item.type = TextDataTableType.number
         items.append(item)
         
-        item = PDItem.item()
+        item = PDItem.instantiate()
         item.title = "Validate"
         item.type = TextDataTableType.validate
         items.append(item)

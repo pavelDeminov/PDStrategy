@@ -18,7 +18,7 @@ class ButtonTextDataTableCell: PDTableViewCell {
     }
     
     override func updateUI() {
-        confirmButton.setTitle(item?.title, for: .normal)
+        confirmButton.setTitle(itemInfo?.title, for: .normal)
     }
 
 }

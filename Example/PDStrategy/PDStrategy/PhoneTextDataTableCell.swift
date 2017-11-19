@@ -34,7 +34,7 @@ class PhoneTextDataTableCell: TextDataTableCell {
     
     override func updateUI() {
         super.updateUI()
-        if let value = item?.value as? String {
+        if let value = itemInfo?.value as? String {
             phoneFormatter.applyText(text: value, textField: textField)
         } else {
             phoneFormatter.applyText(text: "", textField: textField)
@@ -53,6 +53,6 @@ class PhoneTextDataTableCell: TextDataTableCell {
     
     @objc override func valueChanged() {
         let raw = phoneFormatter.rawFromText(text: textField.text)
-        item?.value = raw
+        //item?.value = raw
     }
 }

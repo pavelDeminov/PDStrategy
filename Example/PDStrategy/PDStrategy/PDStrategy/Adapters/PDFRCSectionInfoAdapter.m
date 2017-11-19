@@ -1,14 +1,18 @@
 //
-//  PDFRCSectionInfoAdapter.swift
+//  PDFRCSectionInfoAdapter.m
 //  PDStrategy
 //
-//  Created by Pavel Deminov on 08/11/2017.
+//  Created by Pavel Deminov on 19/11/2017.
 //  Copyright © 2017 Pavel Deminov. All rights reserved.
 //
 
-import UIKit
-import CoreData
+#import "PDFRCSectionInfoAdapter.h"
 
+@implementation PDFRCSectionInfoAdapter
+
+@end
+
+/*
 class PDFRCSectionInfoAdapter: NSObject, PDSectionInfo {
     var frcSectionInfo: NSFetchedResultsSectionInfo?
     var title: String? {
@@ -33,3 +37,4 @@ class PDFRCSectionInfoAdapter: NSObject, PDSectionInfo {
     }
     
 }
+*/

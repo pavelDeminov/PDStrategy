@@ -9,10 +9,11 @@
 import UIKit
 import CoreData
 
-extension NSManagedObject: PDItemInfo {
-    var itemHash: String? {
-        get {
-            return String(hash)
-        }
-    }
-}
+//extension NSManagedObject: PDItemInfo {
+//    var itemHash: String? {
+//        get {
+//            return String(hash)
+//        }
+//    }
+//}
+

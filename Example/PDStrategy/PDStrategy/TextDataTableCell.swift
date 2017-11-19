@@ -17,7 +17,8 @@ class TextDataTableCell: PDTableViewCell, UITextFieldDelegate {
     override func setup() {
         selectionStyle = .none
         let builder = TitleTextFieldErrorBuilder.addTitleTextFieldError(to: contentView)
-        titleLabel = builder.titleLabel
+        let titleLabel = builder.titleLabel
+        self.titleLabel = titleLabel
         textField = builder.textField
         errorLabel = builder.errorLabel
         
@@ -26,15 +27,15 @@ class TextDataTableCell: PDTableViewCell, UITextFieldDelegate {
     }
     
     override func updateUI() {
-        titleLabel.text = item?.title
-        textField.text = item?.value as? String
-        textField.placeholder = item?.placeholder
+        titleLabel.text = itemInfo?.title
+        textField.text = itemInfo?.value as? String
+        textField.placeholder = itemInfo?.placeholder
         
         textField.layer.borderColor = textField.isFirstResponder ? UIColor.green.cgColor : nil
         textField.layer.borderWidth = textField.isFirstResponder ? 3 / UIScreen.main.scale : 0
         textField.layer.cornerRadius = 6 / UIScreen.main.scale
         
-        if let pdItem = item as? PDItem {
+        if let pdItem = itemInfo as? PDItem {
             errorLabel?.text = pdItem.errorRule?.error;
         }
         
@@ -53,7 +54,7 @@ class TextDataTableCell: PDTableViewCell, UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        if let pdItem = item as? PDItem {
+        if let pdItem = itemInfo as? PDItem {
             pdItem.invalidate()
         }
         updateUI()
@@ -65,6 +66,6 @@ class TextDataTableCell: PDTableViewCell, UITextFieldDelegate {
     }
     
     @objc func valueChanged() {
-        item?.value = textField?.text;
+        //itemInfo?.value = textField?.text;
     }
 }

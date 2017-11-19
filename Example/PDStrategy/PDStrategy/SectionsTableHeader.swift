@@ -16,6 +16,6 @@ class SectionsTableHeader: PDTableViewHeaderFooter {
     }
     
     override func updateUI() {
-        titleLabel.text = section?.title
+        titleLabel.text = sectionInfo?.title
     }
 }

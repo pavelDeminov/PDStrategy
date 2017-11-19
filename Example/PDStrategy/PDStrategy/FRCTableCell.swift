@@ -17,8 +17,8 @@ class FRCTableCell: PDTableViewCell {
     }
     
     override func updateUI() {
-        let item = self.item
-        if let managed = item as? PDManagedItemInfo {
+        let item = self.itemInfo
+        if let managed = item as? PDItemInfo {
             titleLabel.text = managed.title
         }
     }

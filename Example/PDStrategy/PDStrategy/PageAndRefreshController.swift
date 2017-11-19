@@ -11,14 +11,15 @@ import UIKit
 class PageAndRefreshController: PDController {
     
     override func setup() {
-        let section = PDSection.section()
+        let section = PDSection.instantiate()
         
         section.items = [PDItem]()
         sections = [section]
     }
     
-    override func appendData(data: Any) {
-        guard let section = sections?.first else {
+        
+    override func appendData(_ data: (Any)?) {
+        guard let section = sections?.first as? PDSection else {
             return
         }
         
@@ -31,7 +32,7 @@ class PageAndRefreshController: PDController {
         }
         
         for model in array {
-            let item = PDItem.item()
+            let item = PDItem.instantiate()
             item.title = model.title
             item.value = model.value
             items.append(item)

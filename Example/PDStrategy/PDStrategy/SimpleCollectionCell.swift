@@ -19,7 +19,7 @@ class SimpleCollectionCell: PDCollectionViewCell {
     }
     
     override func updateUI() {
-        titleLabel.text = item?.title
+        titleLabel.text = itemInfo?.title
     }
     
     

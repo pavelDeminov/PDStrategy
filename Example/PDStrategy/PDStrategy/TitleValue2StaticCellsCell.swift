@@ -21,8 +21,8 @@ class TitleValue2StaticCellsCell: PDTableViewCell {
     }
     
     override func updateUI() {
-        titleLabel.text = item?.title
-        valueLabel.text = item?.value as? String
+        titleLabel.text = itemInfo?.title
+        valueLabel.text = itemInfo?.value as? String
     }
 
 }

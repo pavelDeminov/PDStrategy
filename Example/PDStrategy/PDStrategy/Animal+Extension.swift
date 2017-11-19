@@ -8,6 +8,6 @@
 
 import UIKit
 
-extension Animal: PDManagedItemInfo {
+extension Animal {
 
 }
