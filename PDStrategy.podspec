@@ -53,8 +53,17 @@ This is testing pod
     builders.dependency 'PDStrategy/Views'
   end
   
+ s.subspec "Base" do |base |
+    base.source_files = "Example/PDStrategy/PDStrategy/PDStrategy/Base/**/*.{h,m}"
+    base.dependency 'PDStrategy/Protocols'
+    base.dependency 'PDStrategy/Models'
+    base.dependency 'PDStrategy/Adapters'
+    base.dependency 'PDStrategy/Views'
+  end
+
   s.subspec "CollectionView" do |collectionView |
     collectionView.source_files = "Example/PDStrategy/PDStrategy/PDStrategy/CollectionView/**/*.{h,m}"
+    collectionView.dependency 'PDStrategy/Base'
     collectionView.dependency 'PDStrategy/Protocols'
     collectionView.dependency 'PDStrategy/Models'
     collectionView.dependency 'PDStrategy/Adapters'
@@ -63,10 +72,20 @@ This is testing pod
 	
   s.subspec "TableView" do | tableView |
     tableView.source_files = "Example/PDStrategy/PDStrategy/PDStrategy/TableView/**/*.{h,m}"
+    tableView.dependency 'PDStrategy/Base'
     tableView.dependency 'PDStrategy/Protocols'
     tableView.dependency 'PDStrategy/Models'
     tableView.dependency 'PDStrategy/Adapters'
     tableView.dependency 'PDStrategy/Views'
+  end
+	
+  s.subspec "ScrollView" do | scrollView |
+    scrollView.source_files = "Example/PDStrategy/PDStrategy/PDStrategy/ScrollView/**/*.{h,m}"
+    scrollView.dependency 'PDStrategy/Base'
+    scrollView.dependency 'PDStrategy/Protocols'
+    scrollView.dependency 'PDStrategy/Models'
+    scrollView.dependency 'PDStrategy/Adapters'
+    scrollView.dependency 'PDStrategy/Views'
   end
 
 end

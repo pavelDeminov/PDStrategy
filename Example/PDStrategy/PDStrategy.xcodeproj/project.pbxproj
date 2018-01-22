@@ -418,7 +418,6 @@
 				95801E921FAE673900E3FEA8 /* Builders */,
 				95BAAF5B1FB7855700675095 /* CollectionView */,
 				958E14931FAE004F00DD0B65 /* TableView */,
-				958E14891FADF8C700DD0B65 /* Extensions */,
 				95A6667F1FC0BE1100486244 /* PDStrategy.h */,
 			);
 			path = PDStrategy;
@@ -448,13 +447,6 @@
 				9501D68A1FC0D0C800214565 /* PDHeaderFooterInfo.h */,
 			);
 			path = Protocols;
-			sourceTree = "<group>";
-		};
-		958E14891FADF8C700DD0B65 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		958E14931FAE004F00DD0B65 /* TableView */ = {
