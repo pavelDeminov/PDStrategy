@@ -54,8 +54,8 @@ class TextDataTableViewController: PDTableViewController {
             }
         }
         
-        let params = controller?.dictionary()
-        print(params)
+        //let params = controller?.dictionary()
+        //print(params)
 
     }
 }

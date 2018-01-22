@@ -25,9 +25,10 @@ class ImageStaticCellsCell: PDTableViewCell {
         
         if let image = itemInfo?.image {
             imgView.image = image
-        } else if let url = itemInfo?.imageUrl {
-            
         }
+//        else if let url = itemInfo?.imageUrl {
+//            
+//        }
     }
 
 }

@@ -22,6 +22,6 @@
 - (void)invalidate;
 - (void)appendData:(nullable id)data;
 - (nullable NSIndexPath *)errorIndexPath;
-- (nullable NSIndexPath *)indexPathForItemInfo:(id <PDItemInfo>)itemInfo;
+- (nullable NSIndexPath *)indexPathForItemInfo:(nullable id <PDItemInfo>)itemInfo;
 
 @end

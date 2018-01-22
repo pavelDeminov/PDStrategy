@@ -16,7 +16,7 @@
 @property (nonatomic, readwrite) UIImage *image;
 @property (nonatomic, readwrite) NSURL *imageUrl;
 @property (nonatomic, readwrite) NSString *title;
-@property (nullable, nonatomic, strong) id value;
+@property (nonatomic, strong) id value;
 @property (nonatomic, readwrite) NSArray <PDItemInfo> *items;
 
 @end

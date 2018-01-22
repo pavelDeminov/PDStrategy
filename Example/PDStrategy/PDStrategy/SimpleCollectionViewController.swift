@@ -21,7 +21,7 @@ class SimpleCollectionViewController: PDCollectionViewController {
     }
     
     
-    override func cellSizeForItem(at indexPath: IndexPath!) -> CGSize {
+    override func cellSizeForItem(at indexPath: (IndexPath!)) -> CGSize {
         return dynamicCellSize(forItem: indexPath, itemsCount: 1)
     }
     

@@ -23,7 +23,7 @@ class TextFieldScrollCell: PDScrollViewCell {
             wSelf?.errorLabel = errorLabel
         }
         
-        textField.delegate = self
+        //textField.delegate = self
         textField?.addTarget(self, action: #selector(valueChanged), for: .editingChanged)
     }
     
