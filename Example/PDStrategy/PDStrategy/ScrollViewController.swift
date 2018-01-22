@@ -22,14 +22,18 @@ class ScrollViewController: PDScrollViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func cellIdentifier(for indexPath: IndexPath) -> String {
+        guard let item = itemInfo(for: indexPath), let type = item.type as? ScrollControllerItemType else {
+            return super.cellIdentifier(for: indexPath)
+        }
+        
+        switch type {
+        
+        case .titleValue:
+            return TitleValueScrollCell.reuseIdentifier()
+         default:
+            return super.cellIdentifier(for: indexPath)
+        }
     }
-    */
 
 }

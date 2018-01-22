@@ -66,4 +66,19 @@
     return [NSIndexPath indexPathForRow:rowindex inSection:sectionIndex];
 }
 
+- (nullable NSIndexPath *)indexPathForItemInfo:(id <PDItemInfo>)itemInfo {
+    
+    for (id <PDSectionInfo> sectionInfo in self.sections) {
+        for (id <PDItemInfo> item in sectionInfo.items) {
+            if (itemInfo == item) {
+                NSInteger section = [self.sections indexOfObject:sectionInfo];
+                NSInteger row = [sectionInfo.items indexOfObject:item];
+                return [NSIndexPath indexPathForRow:row inSection:section];
+            }
+        }
+    }
+    
+    return nil;
+}
+
 @end

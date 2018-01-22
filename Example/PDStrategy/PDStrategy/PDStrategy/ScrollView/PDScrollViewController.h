@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PDBaseViewController.h"
 
-@interface PDScrollViewController : UIViewController
+
+@interface PDScrollViewController : PDBaseViewController
+
+@property (null_unspecified, nonatomic, weak) IBOutlet UIScrollView *scrollView;
+
 
 @end

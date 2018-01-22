@@ -15,6 +15,7 @@ enum MainItemType {
     case textDataTable
     case frcTableView
     case simpleCollection
+    case scrollView
 }
 
 class MainController: PDController {
@@ -52,6 +53,11 @@ class MainController: PDController {
         item = PDItem.instantiate()
         item.title = "Simple Collection View"
         item.type = MainItemType.simpleCollection
+        items.append(item)
+        
+        item = PDItem.instantiate()
+        item.title = "Scroll View"
+        item.type = MainItemType.scrollView
         items.append(item)
         
         section.items = items

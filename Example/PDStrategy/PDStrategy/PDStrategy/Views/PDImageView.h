@@ -15,6 +15,12 @@
 @property (nonatomic, strong) NSLayoutConstraint *trailing;
 @property (nonatomic, strong) NSLayoutConstraint *bottom;
 
+@property (nonatomic, strong) NSLayoutConstraint *width;
+@property (nonatomic, strong) NSLayoutConstraint *height;
+
+@property (nonatomic, strong) NSLayoutConstraint *x;
+@property (nonatomic, strong) NSLayoutConstraint *y;
+
 - (void)setup;
 
 

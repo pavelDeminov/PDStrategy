@@ -16,6 +16,7 @@
 @property (nullable, nonatomic, strong) UIImage *image;
 @property (nullable, nonatomic, strong) NSURL *imageUrl;
 @property (nullable, nonatomic, strong) NSString *title;
+@property (nullable, nonatomic, strong) id value;
 @property (nullable, nonatomic, strong) NSArray <PDItemInfo> *items;
 
 @property (nonatomic) ValidationState state;

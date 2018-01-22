@@ -21,6 +21,9 @@
 #import "PDController.h"
 #import "PDSection.h"
 
+//Base
+#import "PDBaseViewController.h"
+
 //TableView
 #import "PDTableViewController.h"
 #import "PDFRCTableViewController.h"
@@ -30,6 +33,10 @@
 //CollectionView
 #import "PDCollectionViewCell.h"
 #import "PDCollectionViewController.h"
+
+//ScrollView
+#import "PDScrollViewCell.h"
+#import "PDScrollViewController.h"
 
 //Views
 #import "PDRefreshControl.h"

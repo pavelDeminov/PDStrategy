@@ -10,12 +10,23 @@ import UIKit
 
 class TitleValueScrollCell: PDScrollViewCell {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    private(set) var titleLabel: UILabel!
+    private(set) var valueLabel: UILabel!
+    
+    override func setup() {
+        weak var wSelf = self
+        self.backgroundColor = UIColor.white
+        
+        TitleValueBuilder.addTitle(to: self) { (titleLabel, valueLabel) in
+             wSelf?.titleLabel = titleLabel;
+             wSelf?.valueLabel = valueLabel;
+        }
+        
     }
-    */
+    
+    override func updateUI() {
+        titleLabel.text = itemInfo?.title
+        valueLabel.text = itemInfo?.value as? String
+    }
 
 }

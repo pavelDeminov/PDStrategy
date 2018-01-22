@@ -88,7 +88,7 @@
 }
 
 - (nullable id <PDSectionInfo>)sectionInfoForSection:(NSInteger)section {
-     return self.sections[section];
+     return self.controller.sections[section];
 }
 
 - (nullable id <PDItemInfo> )itemInfoForIndexPath:(nonnull NSIndexPath *)indexPath {
@@ -169,11 +169,13 @@
     }
     
     id <PDCellInfo> cellInfo  = (id <PDCellInfo>)cell;
-    cellInfo.reloadCellBlock = ^{
-        [tableView beginUpdates];
-        [tableView endUpdates];
-    };
-
+    if (!cellInfo.reloadCellBlock) {
+        cellInfo.reloadCellBlock = ^{
+            [tableView beginUpdates];
+            [tableView endUpdates];
+        };
+    }
+    
     cellInfo.itemInfo = itemInfo;
     [self prepareCell:cell forIndexPath:indexPath];
     return cell;

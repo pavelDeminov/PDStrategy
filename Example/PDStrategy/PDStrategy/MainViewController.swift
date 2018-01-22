@@ -42,6 +42,8 @@ class MainViewController: PDTableViewController {
             performSegue(withIdentifier: FRCTableViewController.segueIdentifier(), sender: self)
         case .simpleCollection :
             performSegue(withIdentifier: SimpleCollectionViewController.segueIdentifier(), sender: self)
+        case .scrollView :
+            performSegue(withIdentifier: ScrollViewController.segueIdentifier(), sender: self)
         }
     }
 }

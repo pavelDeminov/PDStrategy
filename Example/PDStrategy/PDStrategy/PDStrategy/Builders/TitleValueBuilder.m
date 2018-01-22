@@ -48,13 +48,12 @@
     PDValueLabel *valueLabel =  [PDValueLabel new];
     [view addSubview:valueLabel];
     
-    [titleLabel setContentHuggingPriority:(UILayoutPriorityRequired) forAxis:(UILayoutConstraintAxisHorizontal)];
     
     titleLabel.top = [NSLayoutConstraint constraintWithItem:titleLabel attribute:(NSLayoutAttributeTop) relatedBy:(NSLayoutRelationEqual) toItem:titleLabel.superview attribute:NSLayoutAttributeTop multiplier:1 constant:15];
     
     titleLabel.leading = [NSLayoutConstraint constraintWithItem:titleLabel attribute:(NSLayoutAttributeLeading) relatedBy:(NSLayoutRelationEqual) toItem:titleLabel.superview attribute:NSLayoutAttributeLeading multiplier:1 constant:15];
     
-    titleLabel.trailing = [NSLayoutConstraint constraintWithItem:titleLabel attribute:(NSLayoutAttributeTrailing) relatedBy:(NSLayoutRelationLessThanOrEqual) toItem:titleLabel.superview attribute:NSLayoutAttributeTrailing multiplier:1 constant:-15];
+    titleLabel.trailing = [NSLayoutConstraint constraintWithItem:titleLabel attribute:(NSLayoutAttributeTrailing) relatedBy:(NSLayoutRelationEqual) toItem:titleLabel.superview attribute:NSLayoutAttributeTrailing multiplier:1 constant:-15];
     
     
     valueLabel.top = [NSLayoutConstraint constraintWithItem:valueLabel attribute:(NSLayoutAttributeTop) relatedBy:(NSLayoutRelationEqual) toItem:titleLabel attribute:NSLayoutAttributeBottom multiplier:1 constant:10];

@@ -16,6 +16,8 @@
 @property (nonatomic, strong) id <PDItemInfo> itemInfo;
 
 + (NSString*)reuseIdentifier;
++ (CGSize)fitingSizeForItemInfo:(id <PDItemInfo>)itemInfo withSize:(CGSize)size;
+
 - (void)updateUI;
 - (void)setup;
 

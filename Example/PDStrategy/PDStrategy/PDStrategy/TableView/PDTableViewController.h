@@ -31,5 +31,6 @@
 - (CGFloat)tableView:(nonnull UITableView *)tableView estimatedHeightForHeaderInSection:(NSInteger)section;
 
 - (void)refresh;
+- (void)setupController;
 
 @end

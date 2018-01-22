@@ -11,7 +11,6 @@
 
 @interface PDCollectionViewController ()
 
-@property (nonatomic, strong) NSMutableArray <NSString *> *registeredCells;
 
 @end
 
@@ -49,10 +48,10 @@
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     self.registeredCells = [NSMutableArray new];
+    self.registeredPrototypes = [NSMutableDictionary new];
     
     self.refreshControl = [UIRefreshControl new];
     [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
-    [self setupController];
 }
 
 - (void)refresh {
@@ -65,81 +64,6 @@
 
 - (void)loadNextPage {
     
-}
-
-- (void)setupController {
-    NSString *classString = NSStringFromClass([self class]);
-    classString = [[NSStringFromClass([self class]) componentsSeparatedByString:@"."] lastObject];
-    classString = [classString stringByReplacingOccurrencesOfString:@"ViewController" withString:@""];
-    NSString *identifier = [NSString stringWithFormat:@"%@Controller",classString];
-    Class class = NSClassFromString(identifier);
-    
-    if (!class) {
-        //Not objc
-        NSString *moduleName = [[NSStringFromClass([self class]) componentsSeparatedByString:@"."] firstObject];
-        identifier = [NSString stringWithFormat:@"%@.%@",moduleName, identifier];
-        class = NSClassFromString(identifier);
-    }
-    
-    PDController *controller = [class new];
-    self.controller = controller;
-}
-
-- (nullable NSArray *)sections {
-    return self.controller.sections;
-}
-
-- (nullable id <PDSectionInfo>)sectionInfoForSection:(NSInteger)section {
-    return self.sections[section];
-}
-
-- (nullable id <PDItemInfo> )itemInfoForIndexPath:(nonnull NSIndexPath *)indexPath {
-    id <PDSectionInfo> sectionInfo = [self sectionInfoForSection:indexPath.section];
-    if (indexPath.row < sectionInfo.items.count) {
-        id <PDItemInfo> itemInfo = sectionInfo.items[indexPath.row];
-        return itemInfo;
-    } else {
-        return nil;
-    }
-}
-
-- (nonnull NSString *)cellIdentifierForIndexPath:(nonnull NSIndexPath *)indexPath {
-    NSString *classString = NSStringFromClass([self class]);
-    classString = [[NSStringFromClass([self class]) componentsSeparatedByString:@"."] lastObject];
-    classString = [classString stringByReplacingOccurrencesOfString:@"ViewController" withString:@""];
-    NSString *identifier = [NSString stringWithFormat:@"%@Cell",classString];
-    return identifier;
-}
-
-- (nonnull NSString *)sectionIdentifierForSection:(NSInteger)section {
-    NSString *classString = NSStringFromClass([self class]);
-    classString = [[NSStringFromClass([self class]) componentsSeparatedByString:@"."] lastObject];
-    classString = [classString stringByReplacingOccurrencesOfString:@"ViewController" withString:@""];
-    NSString *identifier = [NSString stringWithFormat:@"%@Header",classString];
-    return identifier;
-}
-
-- (Class)classForIdentifier:(NSString *)identifier {
-    
-    Class cellClass = NSClassFromString(identifier);
-    if (!cellClass) {
-        //Not objc
-        NSString *moduleName = [[NSStringFromClass([self class]) componentsSeparatedByString:@"."] firstObject];
-        identifier = [NSString stringWithFormat:@"%@.%@",moduleName, identifier];
-        cellClass = NSClassFromString(identifier);
-    }
-    
-    return cellClass;
-}
-
-- (Class)classForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *identifier = [self cellIdentifierForIndexPath:indexPath];
-    return [self classForIdentifier:identifier];
-}
-
-- (Class)headerFooterClassForSection:(NSInteger)section {
-    NSString *identifier = [self sectionIdentifierForSection:section];
-    return [self classForIdentifier:identifier];
 }
 
 - (void)prepareCell:(UICollectionViewCell *)cell forIndexPath:(NSIndexPath *)indexPath {
@@ -157,13 +81,19 @@
         return defaultSize;
     }
     
+    UIEdgeInsets insets = flowLayout.sectionInset;
+    if ([self respondsToSelector:@selector(collectionView:layout:insetForSectionAtIndex:)]) {
+        insets = [self collectionView:self.collectionView layout:flowLayout insetForSectionAtIndex:indexPath.section];
+    }
+    
     if (flowLayout.scrollDirection == UICollectionViewScrollDirectionVertical) {
-        CGFloat contentWidth = self.collectionView.frame.size.width - flowLayout.sectionInset.left - flowLayout.sectionInset.right;
-        CGFloat width = itemsCount > 1 ? contentWidth / itemsCount  - contentWidth / ((itemsCount - 1) * flowLayout.minimumInteritemSpacing) : contentWidth;
+        CGFloat contentWidth = self.collectionView.frame.size.width - insets.left - insets.right - flowLayout.minimumInteritemSpacing * (itemsCount - 1);
+        CGFloat width = itemsCount > 1 ? contentWidth / itemsCount  : contentWidth;
         return CGSizeMake(width, defaultSize.height);
+        
     } else {
-        CGFloat contentHeight = self.collectionView.frame.size.height - flowLayout.sectionInset.top - flowLayout.sectionInset.bottom;
-        CGFloat height = itemsCount > 1 ? contentHeight / itemsCount  - contentHeight / ((itemsCount - 1) * flowLayout.minimumLineSpacing) : contentHeight;
+        CGFloat contentHeight = self.collectionView.frame.size.height - insets.top - insets.bottom - flowLayout.minimumLineSpacing * (itemsCount - 1);
+        CGFloat height = itemsCount > 1 ? contentHeight / itemsCount  : contentHeight;
         return CGSizeMake(defaultSize.width, height);
     }
 }
@@ -198,6 +128,16 @@
     
     id <PDCellInfo> cellInfo  = (id <PDCellInfo>)cell;
     cellInfo.itemInfo = itemInfo;
+    
+    cellInfo.reloadCellBlock = ^{
+        [self.collectionView.collectionViewLayout invalidateLayout];
+        [self.collectionView performBatchUpdates:^{
+            
+        } completion:^(BOOL finished) {
+            
+        }];
+    };
+    
     [self prepareCell:cell forIndexPath:indexPath];
     
     return cell;
@@ -206,6 +146,30 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     return [self cellSizeForItemAt:indexPath];
+}
+
+- (CGSize)fitingSizeForIndexPath:(NSIndexPath *)indexPath withSize:(CGSize)dynamicSize {
+    
+    id <PDItemInfo> itemInfo = [self itemInfoForIndexPath:indexPath];
+    
+    NSString *cellIdentifier = [self cellIdentifierForIndexPath:indexPath];
+    UICollectionViewCell *prototype = self.registeredPrototypes[cellIdentifier];
+    if (!prototype) {
+        prototype = [[[NSBundle mainBundle] loadNibNamed:cellIdentifier owner:nil options:nil] objectAtIndex:0];
+        
+        NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:prototype.contentView attribute:(NSLayoutAttributeWidth) relatedBy:(NSLayoutRelationEqual) toItem:nil attribute:NSLayoutAttributeWidth multiplier:1.0 constant:dynamicSize.width];
+        [NSLayoutConstraint activateConstraints:@[width]];
+        
+        self.registeredPrototypes[cellIdentifier] = prototype;
+    }
+    
+    id <PDCellInfo> cellInfo  = (id <PDCellInfo>)prototype;
+    
+    cellInfo.itemInfo = itemInfo;
+    CGSize s = [prototype systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    
+    return s;
+    
 }
 
 @end
