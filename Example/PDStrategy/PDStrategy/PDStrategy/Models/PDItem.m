@@ -59,4 +59,66 @@
     [self.updateBlocks removeObject:updateBlock];
 }
 
+#pragma mark PDItemInfo
+
+@synthesize pdApiKey;
+
+@synthesize pdDate;
+
+@synthesize pdImage;
+
+@synthesize pdImageUrl;
+
+@synthesize pdItemHash;
+
+@synthesize pdLocked;
+
+@synthesize pdPlaceholder;
+
+@synthesize pdTitle;
+
+@synthesize pdType;
+
+@synthesize pdValue;
+
+- (NSString *)pdTitle {
+    return self.title;
+}
+
+- (id)pdValue {
+    return self.value;
+}
+
+- (NSString *)pdItemHash {
+    return self.itemHash;
+}
+
+- (NSDate *)pdDate {
+    return self.date;
+}
+
+- (NSString *)pdApiKey {
+    return self.apiKey;
+}
+
+- (NSString *)pdPlaceholder {
+    return self.placeholder;
+}
+
+- (id)pdType {
+    return self.type;
+}
+
+- (UIImage *)pdImage {
+    return self.image;
+}
+
+- (NSURL *)pdImageUrl {
+    return self.imageUrl;
+}
+
+- (BOOL)pdLocked {
+    return self.locked;
+}
+
 @end

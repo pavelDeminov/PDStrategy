@@ -12,16 +12,16 @@ typedef void (^UpdateBlock)(void);
 
 @protocol PDItemInfo <NSObject>
 
-@property (nullable, nonatomic, readwrite) NSString *title;
-@property (nullable, nonatomic, readwrite) NSString *itemHash;
-@property (nullable, nonatomic, readwrite) id value;
-@property (nullable, nonatomic, readwrite) NSDate *date;
-@property (nullable, nonatomic, readwrite) NSString *apiKey;
-@property (nullable, nonatomic, readwrite) NSString *placeholder;
-@property (nullable, nonatomic, readwrite) id type;
-@property (nullable, nonatomic, readwrite) UIImage *image;
-@property (nullable, nonatomic, readwrite) NSURL *imageUrl;
-@property (nonatomic, readwrite) BOOL locked;
+@property (nullable, nonatomic, readwrite) NSString *pdTitle;
+@property (nullable, nonatomic, readwrite) NSString *pdItemHash;
+@property (nullable, nonatomic, readwrite) id pdValue;
+@property (nullable, nonatomic, readwrite) NSDate *pdDate;
+@property (nullable, nonatomic, readwrite) NSString *pdApiKey;
+@property (nullable, nonatomic, readwrite) NSString *pdPlaceholder;
+@property (nullable, nonatomic, readwrite) id pdType;
+@property (nullable, nonatomic, readwrite) UIImage *pdImage;
+@property (nullable, nonatomic, readwrite) NSURL *pdImageUrl;
+@property (nonatomic, readwrite) BOOL pdLocked;
 
 @optional
 

@@ -34,7 +34,7 @@ class MoneyTextDataTableCell: TextDataTableCell {
     
     override func updateUI() {
         super.updateUI()
-        if let value = itemInfo?.value as? String {
+        if let value = itemInfo?.pdValue as? String {
             moneyFormatter.applyText(text: value, textField: textField)
         } else {
             moneyFormatter.applyText(text: "", textField: textField)

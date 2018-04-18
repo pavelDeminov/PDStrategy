@@ -23,9 +23,9 @@ class Date2StaticCellsCell: PDTableViewCell {
     }
     
     override func updateUI() {
-        titleLabel.text = itemInfo?.title
-        valueLabel.text = itemInfo?.value as? String
-        dateLabel.date = itemInfo?.date
+        titleLabel.text = itemInfo?.pdTitle
+        valueLabel.text = itemInfo?.pdValue as? String
+        dateLabel.date = itemInfo?.pdDate
     }
 
 }

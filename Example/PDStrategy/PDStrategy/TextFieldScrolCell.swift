@@ -28,9 +28,9 @@ class TextFieldScrollCell: PDScrollViewCell {
     }
     
     override func updateUI() {
-        titleLabel.text = itemInfo?.title
-        textField.text = itemInfo?.value as? String
-        textField.placeholder = itemInfo?.placeholder
+        titleLabel.text = itemInfo?.pdTitle
+        textField.text = itemInfo?.pdValue as? String
+        textField.placeholder = itemInfo?.pdPlaceholder
         
         textField.layer.borderColor = textField.isFirstResponder ? UIColor.green.cgColor : nil
         textField.layer.borderWidth = textField.isFirstResponder ? 3 / UIScreen.main.scale : 0

@@ -15,7 +15,7 @@ class TextDataTableViewController: PDTableViewController {
     }
     
     override func cellIdentifier(for indexPath: IndexPath) -> String {
-        guard let item = itemInfo(for: indexPath), let type = item.type as? TextDataTableType else {
+        guard let item = itemInfo(for: indexPath), let type = item.pdType as? TextDataTableType else {
             return super.cellIdentifier(for: indexPath)
         }
         

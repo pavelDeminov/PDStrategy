@@ -24,7 +24,7 @@ class DateTextDataTableCell: TextDataTableCell {
     override func updateUI() {
         super.updateUI()
         
-        if let date = itemInfo?.date {
+        if let date = itemInfo?.pdDate {
             self.textField?.text = dateFormatter.string(from: date)
             
             if let datePicker = textField?.inputView as? UIDatePicker {

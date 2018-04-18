@@ -25,8 +25,8 @@ class TitleValueScrollCell: PDScrollViewCell {
     }
     
     override func updateUI() {
-        titleLabel.text = itemInfo?.title
-        valueLabel.text = itemInfo?.value as? String
+        titleLabel.text = itemInfo?.pdTitle
+        valueLabel.text = itemInfo?.pdValue as? String
     }
 
 }

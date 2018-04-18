@@ -34,7 +34,7 @@ class PhoneTextDataTableCell: TextDataTableCell {
     
     override func updateUI() {
         super.updateUI()
-        if let value = itemInfo?.value as? String {
+        if let value = itemInfo?.pdValue as? String {
             phoneFormatter.applyText(text: value, textField: textField)
         } else {
             phoneFormatter.applyText(text: "", textField: textField)

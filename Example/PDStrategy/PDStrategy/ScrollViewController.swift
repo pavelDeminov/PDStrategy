@@ -23,7 +23,7 @@ class ScrollViewController: PDScrollViewController {
     
 
     override func cellIdentifier(for indexPath: IndexPath) -> String {
-        guard let item = itemInfo(for: indexPath), let type = item.type as? ScrollControllerItemType else {
+        guard let item = itemInfo(for: indexPath), let type = item.pdType as? ScrollControllerItemType else {
             return super.cellIdentifier(for: indexPath)
         }
         

@@ -25,7 +25,7 @@ class MainViewController: PDTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let item = itemInfo(for: indexPath), let type = item.type as? MainItemType else {
+        guard let item = itemInfo(for: indexPath), let type = item.pdType as? MainItemType else {
             return
         }
         

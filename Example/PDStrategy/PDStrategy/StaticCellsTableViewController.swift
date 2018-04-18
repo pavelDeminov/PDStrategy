@@ -27,7 +27,7 @@ class StaticCellsTableViewController: PDTableViewController {
     }
     
     override func cellIdentifier(for indexPath: IndexPath) -> String {
-        guard let item = itemInfo(for: indexPath), let type = item.type as? StaticCellsTableType else {
+        guard let item = itemInfo(for: indexPath), let type = item.pdType as? StaticCellsTableType else {
             return super.cellIdentifier(for: indexPath)
         }
         
