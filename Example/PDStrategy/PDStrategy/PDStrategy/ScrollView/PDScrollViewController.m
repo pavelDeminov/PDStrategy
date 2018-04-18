@@ -154,22 +154,19 @@
 }
 
 - (PDScrollViewCell *)cellForRowIndexPath:(NSIndexPath *)indexPath {
-    
-    NSInteger section = 0;
-    NSInteger row = 0;
+        
     NSInteger cellIndex = 0;
+
     for (id <PDSectionInfo> sectionInfo in self.controller.sections) {
-        row = 0;
-        for (id <PDItemInfo> itemInfo in sectionInfo.items) {
+        for (int row = 0;row < sectionInfo.items.count; row++) {
+            NSInteger section = [self.controller.sections indexOfObject:sectionInfo];
             NSIndexPath *ip = [NSIndexPath indexPathForRow:row inSection:section];
             if ([ip isEqual:indexPath]) {
                 PDScrollViewCell *cell = [self.scrollView.subviews objectAtIndex:cellIndex];
                 return cell;
             }
-            row++;
             cellIndex++;
         }
-        section++;
     }
     return nil;
 }
