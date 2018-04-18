@@ -47,4 +47,16 @@
     self.errorRule = nil;
 }
 
+- (UpdateBlock)addUpdateBlock:(UpdateBlock)updateBlock {
+    if (!self.updateBlocks) {
+        self.updateBlocks = [NSMutableArray new];
+    }
+    [self.updateBlocks addObject:updateBlock];
+    return updateBlock;
+}
+
+- (void)removeUpdateBlock:(UpdateBlock)updateBlock {
+    [self.updateBlocks removeObject:updateBlock];
+}
+
 @end

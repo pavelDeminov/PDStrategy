@@ -8,7 +8,14 @@
 
 #import "PDScrollViewCell.h"
 
+@interface PDScrollViewCell ()
+
+@property (nonatomic, strong) UpdateBlock updateUIBlock;
+
+@end
+
 @implementation PDScrollViewCell
+
 
 + (NSString*)reuseIdentifier {
     NSString *classString = NSStringFromClass(self);
@@ -17,7 +24,16 @@
 }
 
 - (void)setItemInfo:(id<PDItemInfo>)itemInfo {
+    if (_itemInfo != nil && self.updateUIBlock != nil) {
+        [_itemInfo removeUpdateBlock:self.updateUIBlock];
+    }
     _itemInfo = itemInfo;
+    
+    __weak typeof(self) cell = self;
+    self.updateUIBlock = [itemInfo addUpdateBlock:^{
+        [cell updateUI];
+    }];
+    
     [self updateUI];
 }
 

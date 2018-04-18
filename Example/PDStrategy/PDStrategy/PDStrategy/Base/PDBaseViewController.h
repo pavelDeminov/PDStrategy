@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "PDController.h"
 
-@interface PDBaseViewController : UIViewController
+@interface PDBaseViewController : UIViewController <PDControllerDelegate>
 
 @property (nullable, nonatomic, strong) PDController *controller;
 

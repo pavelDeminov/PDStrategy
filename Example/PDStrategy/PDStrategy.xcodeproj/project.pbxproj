@@ -277,8 +277,8 @@
 			isa = PBXGroup;
 			children = (
 				957A70FD2004B89E00CC5D3E /* TitleValueScrollCell.swift */,
-				957A70F9200289AA00CC5D3E /* ScrollCell.swift */,
 				957A71022004BC3400CC5D3E /* TextFieldScrolCell.swift */,
+				957A70F9200289AA00CC5D3E /* ScrollCell.swift */,
 				957A70FB200290E600CC5D3E /* ScrollCell.xib */,
 			);
 			name = Scroll;

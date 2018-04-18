@@ -10,6 +10,7 @@
 #import "PDRule.h"
 #import "PDItemInfo.h"
 
+
 typedef NS_ENUM(NSUInteger, ValidationState) {
     ValidationStateNone,
     ValidationStateValid,
@@ -31,6 +32,8 @@ typedef NS_ENUM(NSUInteger, ValidationState) {
 @property (nonatomic) ValidationState state;
 @property (nullable, nonatomic, strong) PDRule *errorRule;
 @property (nullable, nonatomic, strong) NSArray <PDRule *> *rules;
+@property (nullable, nonatomic, strong) NSMutableArray <UpdateBlock> *updateBlocks;
+@property (nonatomic) BOOL locked;
 @property (nonatomic) BOOL apiRequred;
 
 - (void)setup;

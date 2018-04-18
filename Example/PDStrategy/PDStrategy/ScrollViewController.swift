@@ -35,5 +35,14 @@ class ScrollViewController: PDScrollViewController {
             return super.cellIdentifier(for: indexPath)
         }
     }
+    
+    override func scrollView(_ scrollView: UIScrollView, didSelectItemAt indexPath: IndexPath) {
+        guard let item = itemInfo(for: indexPath) else {
+            return
+        }
+        //item.value = String(describing: indexPath)
+        //self.controller?.updateItem(at: indexPath)
+        self.controller?.removeItem(at: indexPath)
+    }
 
 }

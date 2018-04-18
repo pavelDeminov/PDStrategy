@@ -10,11 +10,21 @@
 #import "PDItem.h"
 #import "PDSectionInfo.h"
 
+@protocol PDControllerDelegate
+
+- (void)itemUpdated:(nullable id <PDItemInfo>)item atIndexPath:(nullable NSIndexPath *)indexPath;
+- (void)itemRemoved:(nullable id <PDItemInfo>)item atIndexPath:(nullable NSIndexPath *)indexPath;
+- (void)itemInserted:(nullable id <PDItemInfo>)item atIndexPath:(nullable NSIndexPath *)indexPath;
+
+@end
+
 @interface PDController : NSObject
 
 @property (nullable, nonatomic, strong) NSArray <PDSectionInfo> *sections;
 @property (nullable, nonatomic, strong) id <PDSectionInfo> errorContainer;
 @property (nonatomic) ValidationState state;
+@property (nullable, nonatomic) id <PDControllerDelegate> delegate;
+
 
 - (void)setup;
 - (nullable NSDictionary *)dictionary;
@@ -23,5 +33,11 @@
 - (void)appendData:(nullable id)data;
 - (nullable NSIndexPath *)errorIndexPath;
 - (nullable NSIndexPath *)indexPathForItemInfo:(nullable id <PDItemInfo>)itemInfo;
+- (BOOL)isEmpty;
+
+- (nullable id <PDItemInfo>)updateItemAtIndexPath:(nullable NSIndexPath *)indexPath;
+- (nullable id <PDItemInfo>)removeItemAtIndexPath:(nullable NSIndexPath *)indexPath;
+- (nullable id <PDItemInfo>)insertItem:(nullable id <PDItemInfo>)itemInfo atIndexPath:(nullable NSIndexPath *)indexPath;
+- (nullable id <PDItemInfo>)moveItemAtIndexPath:(nullable NSIndexPath *)indexPath toIndexPath:(nonnull NSIndexPath *)newIndexPath;
 
 @end

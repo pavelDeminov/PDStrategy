@@ -48,6 +48,7 @@
     
     PDController *controller = [class new];
     self.controller = controller;
+    controller.delegate= self;
 }
 
 - (nullable NSArray *)sections {
@@ -105,6 +106,18 @@
 - (nullable Class)headerFooterClassForSection:(NSInteger)section {
     NSString *identifier = [self sectionIdentifierForSection:section];
     return [self classForIdentifier:identifier];
+}
+
+- (void)itemUpdated:(nullable id <PDItemInfo>)item atIndexPath:(nullable NSIndexPath *)indexPath {
+    
+}
+
+- (void)itemRemoved:(nullable id <PDItemInfo>)item atIndexPath:(nullable NSIndexPath *)indexPath {
+    
+}
+
+- (void)itemInserted:(nullable id <PDItemInfo>)item atIndexPath:(nullable NSIndexPath *)indexPath {
+    
 }
 
 @end

@@ -24,11 +24,20 @@ class ScrollController: PDController {
         item.title = "Title"
         items.append(item)
         
-        item = PDItem.instantiate()
-        item.title = "Title"
-        item.value = "Value"
-        item.type = ScrollControllerItemType.titleValue
-        items.append(item)
+//        for i in 1...10 {
+//            item = PDItem.instantiate()
+//            item.title = "Title"
+//            item.value = "Value" + String(i)
+//            item.type = ScrollControllerItemType.titleValue
+//            items.append(item)
+//        }
+        
+        for i in 1...50 {
+            item = PDItem.instantiate()
+            item.title = "Title" +  String(i)
+            items.append(item)
+        }
+        
         
         section.items = items
         
