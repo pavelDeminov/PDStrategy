@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PDController.h"
+#import "PDDataSource.h"
 
 @interface PDTableViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
-@property (nullable, nonatomic, strong) PDController *controller;
+@property (nullable, nonatomic, strong) PDDataSource *controller;
 @property (null_unspecified, nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nullable, nonatomic, strong) UIRefreshControl *refreshControl;
 @property (nonatomic) BOOL refreshEnabled;

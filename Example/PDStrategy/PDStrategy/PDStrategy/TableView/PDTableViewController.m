@@ -79,7 +79,7 @@
         class = NSClassFromString(identifier);
     }
     
-    PDController *controller = [class new];
+    PDDataSource *controller = [class new];
     self.controller = controller;
 }
 

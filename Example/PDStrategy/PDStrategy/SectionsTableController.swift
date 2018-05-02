@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SectionsTableController: PDController {
+class SectionsTableController: PDDataSource {
     
     override func setup() {
         

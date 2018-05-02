@@ -130,8 +130,8 @@
     cellInfo.itemInfo = itemInfo;
     
     cellInfo.reloadCellBlock = ^{
-        [self.collectionView.collectionViewLayout invalidateLayout];
-        [self.collectionView performBatchUpdates:^{
+        [collectionView.collectionViewLayout invalidateLayout];
+        [collectionView performBatchUpdates:^{
             
         } completion:^(BOOL finished) {
             

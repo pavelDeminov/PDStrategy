@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		9501D6781FC0C64200214565 /* PDItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9501D6771FC0C64200214565 /* PDItem.m */; };
 		9501D67B1FC0C71500214565 /* PDRule.m in Sources */ = {isa = PBXBuildFile; fileRef = 9501D67A1FC0C71500214565 /* PDRule.m */; };
-		9501D67F1FC0C8EE00214565 /* PDController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9501D67E1FC0C8EE00214565 /* PDController.m */; };
+		9501D67F1FC0C8EE00214565 /* PDDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9501D67E1FC0C8EE00214565 /* PDDataSource.m */; };
 		9501D6821FC0C95A00214565 /* PDSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9501D6811FC0C95A00214565 /* PDSection.m */; };
 		9501D6851FC0CF3500214565 /* PDFRCSectionInfoAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9501D6841FC0CF3500214565 /* PDFRCSectionInfoAdapter.m */; };
 		9501D6881FC0CFD500214565 /* PDTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9501D6871FC0CFD500214565 /* PDTableViewCell.m */; };
@@ -98,8 +98,8 @@
 		9501D6771FC0C64200214565 /* PDItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDItem.m; sourceTree = "<group>"; };
 		9501D6791FC0C71500214565 /* PDRule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDRule.h; sourceTree = "<group>"; };
 		9501D67A1FC0C71500214565 /* PDRule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDRule.m; sourceTree = "<group>"; };
-		9501D67D1FC0C8EE00214565 /* PDController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDController.h; sourceTree = "<group>"; };
-		9501D67E1FC0C8EE00214565 /* PDController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDController.m; sourceTree = "<group>"; };
+		9501D67D1FC0C8EE00214565 /* PDDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDDataSource.h; sourceTree = "<group>"; };
+		9501D67E1FC0C8EE00214565 /* PDDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDDataSource.m; sourceTree = "<group>"; };
 		9501D6801FC0C95A00214565 /* PDSection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDSection.h; sourceTree = "<group>"; };
 		9501D6811FC0C95A00214565 /* PDSection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDSection.m; sourceTree = "<group>"; };
 		9501D6831FC0CF3500214565 /* PDFRCSectionInfoAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDFRCSectionInfoAdapter.h; sourceTree = "<group>"; };
@@ -430,8 +430,8 @@
 				9501D6771FC0C64200214565 /* PDItem.m */,
 				9501D6791FC0C71500214565 /* PDRule.h */,
 				9501D67A1FC0C71500214565 /* PDRule.m */,
-				9501D67D1FC0C8EE00214565 /* PDController.h */,
-				9501D67E1FC0C8EE00214565 /* PDController.m */,
+				9501D67D1FC0C8EE00214565 /* PDDataSource.h */,
+				9501D67E1FC0C8EE00214565 /* PDDataSource.m */,
 				9501D6801FC0C95A00214565 /* PDSection.h */,
 				9501D6811FC0C95A00214565 /* PDSection.m */,
 			);
@@ -777,7 +777,7 @@
 				9598FCE81FC18B71003A113C /* PDTitleLabel.m in Sources */,
 				95801E961FAEE4E200E3FEA8 /* PageAndRefreshViewController.swift in Sources */,
 				95FA5D7B1FB25F16002C5DA4 /* FRCTableCell.swift in Sources */,
-				9501D67F1FC0C8EE00214565 /* PDController.m in Sources */,
+				9501D67F1FC0C8EE00214565 /* PDDataSource.m in Sources */,
 				95801E8F1FAE5C9100E3FEA8 /* SectionsTableHeader.swift in Sources */,
 				9598FCEE1FC18D00003A113C /* PDButton.m in Sources */,
 				9598FD091FC19830003A113C /* TitleValueBuilder.m in Sources */,

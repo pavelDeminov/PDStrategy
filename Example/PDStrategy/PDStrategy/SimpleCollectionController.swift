@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SimpleCollectionController: PDController {
+class SimpleCollectionController: PDDataSource {
     
     override func setup() {
         let section = PDSection.instantiate()

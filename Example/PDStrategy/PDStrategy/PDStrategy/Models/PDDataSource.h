@@ -1,5 +1,5 @@
 //
-//  PDController.h
+//  PDDataSource.h
 //  PDStrategy
 //
 //  Created by Pavel Deminov on 19/11/2017.
@@ -10,7 +10,7 @@
 #import "PDItem.h"
 #import "PDSectionInfo.h"
 
-@protocol PDControllerDelegate
+@protocol PDDataSourceDelegate
 
 - (void)itemUpdated:(nullable id <PDItemInfo>)item atIndexPath:(nullable NSIndexPath *)indexPath;
 - (void)itemRemoved:(nullable id <PDItemInfo>)item atIndexPath:(nullable NSIndexPath *)indexPath;
@@ -18,12 +18,12 @@
 
 @end
 
-@interface PDController : NSObject
+@interface PDDataSource : NSObject
 
 @property (nullable, nonatomic, strong) NSArray <PDSectionInfo> *sections;
 @property (nullable, nonatomic, strong) id <PDSectionInfo> errorContainer;
 @property (nonatomic) ValidationState state;
-@property (nullable, nonatomic) id <PDControllerDelegate> delegate;
+@property (nullable, nonatomic) id <PDDataSourceDelegate> delegate;
 
 
 - (void)setup;

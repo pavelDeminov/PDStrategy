@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "PDBaseViewController.h"
 #import "PDItemInfo.h"
-#import "PDController.h"
+#import "PDDataSource.h"
 
 @interface PDCollectionViewController : PDBaseViewController <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 

@@ -13,7 +13,7 @@ enum ScrollControllerItemType {
     case titleValue;
 }
 
-class ScrollController: PDController {
+class ScrollController: PDDataSource {
     
     override func setup() {
         let section = PDSection.instantiate()

@@ -79,14 +79,16 @@
 
 @synthesize pdType;
 
-@synthesize pdValue;
-
 - (NSString *)pdTitle {
     return self.title;
 }
 
 - (id)pdValue {
     return self.value;
+}
+
+- (void)setPdValue:(id)pdValue {
+    self.value = pdValue;
 }
 
 - (NSString *)pdItemHash {

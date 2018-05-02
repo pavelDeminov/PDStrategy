@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PDController.h"
+#import "PDDataSource.h"
 
-@interface PDBaseViewController : UIViewController <PDControllerDelegate>
+@interface PDBaseViewController : UIViewController <PDDataSourceDelegate>
 
-@property (nullable, nonatomic, strong) PDController *controller;
+@property (nullable, nonatomic, strong) PDDataSource *controller;
 
 + (nonnull NSString*)segueIdentifier;
 

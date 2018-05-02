@@ -1,15 +1,15 @@
 //
-//  PDController.m
+//  PDDataSource.m
 //  PDStrategy
 //
 //  Created by Pavel Deminov on 19/11/2017.
 //  Copyright © 2017 Pavel Deminov. All rights reserved.
 //
 
-#import "PDController.h"
+#import "PDDataSource.h"
 #import "PDSection.h"
 
-@implementation PDController
+@implementation PDDataSource
 
 - (instancetype)init {
     self = [super init];

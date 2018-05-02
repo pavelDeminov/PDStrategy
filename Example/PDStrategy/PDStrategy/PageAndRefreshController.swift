@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PageAndRefreshController: PDController {
+class PageAndRefreshController: PDDataSource {
     
     override func setup() {
         let section = PDSection.instantiate()
