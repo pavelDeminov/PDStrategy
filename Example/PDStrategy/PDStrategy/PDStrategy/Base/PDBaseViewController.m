@@ -36,7 +36,7 @@
     NSString *classString = NSStringFromClass([self class]);
     classString = [[NSStringFromClass([self class]) componentsSeparatedByString:@"."] lastObject];
     classString = [classString stringByReplacingOccurrencesOfString:@"ViewController" withString:@""];
-    NSString *identifier = [NSString stringWithFormat:@"%@Controller",classString];
+    NSString *identifier = [NSString stringWithFormat:@"%@DataSource",classString];
     Class class = NSClassFromString(identifier);
     
     if (!class) {
