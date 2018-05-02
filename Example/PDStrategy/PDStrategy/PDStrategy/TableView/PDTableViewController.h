@@ -8,20 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "PDDataSource.h"
+#import "PDBaseViewController.h"
 
-@interface PDTableViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface PDTableViewController : PDBaseViewController <UITableViewDelegate, UITableViewDataSource>
 
-@property (nullable, nonatomic, strong) PDDataSource *controller;
 @property (null_unspecified, nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nullable, nonatomic, strong) UIRefreshControl *refreshControl;
 @property (nonatomic) BOOL refreshEnabled;
-
-+ (nonnull NSString*)segueIdentifier;
-
-- (nullable NSArray *)sections;
-- (nullable id <PDSectionInfo>)sectionInfoForSection:(NSInteger)section;
-- (nullable id <PDItemInfo> )itemInfoForIndexPath:(nonnull NSIndexPath *)indexPath;
-- (nonnull NSString *)cellIdentifierForIndexPath:(nonnull NSIndexPath *)indexPath;
 
 - (void)prepareCell:(nonnull UITableViewCell *)cell forIndexPath:(nonnull NSIndexPath *)IndexPath;
 
@@ -31,6 +24,5 @@
 - (CGFloat)tableView:(nonnull UITableView *)tableView estimatedHeightForHeaderInSection:(NSInteger)section;
 
 - (void)refresh;
-- (void)setupController;
 
 @end

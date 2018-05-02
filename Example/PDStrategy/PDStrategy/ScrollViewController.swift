@@ -42,7 +42,7 @@ class ScrollViewController: PDScrollViewController {
         }
         //item.value = String(describing: indexPath)
         //self.controller?.updateItem(at: indexPath)
-        self.controller?.removeItem(at: indexPath)
+        self.dataSource?.removeItem(at: indexPath)
     }
 
 }

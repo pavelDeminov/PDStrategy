@@ -46,9 +46,9 @@ class TextDataTableViewController: PDTableViewController {
     
     @objc func validate(button: UIButton) {
         
-        controller?.validate()
-        if controller?.state != ValidationState.valid {
-            if let indexpath = controller?.errorIndexPath() {
+        dataSource?.validate()
+        if dataSource?.state != ValidationState.valid {
+            if let indexpath = dataSource?.errorIndexPath() {
                 tableView?.reloadRows(at: [indexpath], with: .automatic)
                 return
             }

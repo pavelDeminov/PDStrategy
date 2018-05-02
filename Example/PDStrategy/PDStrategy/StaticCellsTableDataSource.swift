@@ -18,7 +18,7 @@ enum StaticCellsTableType {
     case titleImage;
 }
 
-class StaticCellsTableController: PDDataSource {
+class StaticCellsTableDataSource: PDDataSource {
     
     override func setup() {
         let section = PDSection.instantiate()

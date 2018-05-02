@@ -18,7 +18,7 @@ enum MainItemType {
     case scrollView
 }
 
-class MainController: PDDataSource {
+class MainDataSource: PDDataSource {
     
     override func setup() {
         let section = PDSection.instantiate()

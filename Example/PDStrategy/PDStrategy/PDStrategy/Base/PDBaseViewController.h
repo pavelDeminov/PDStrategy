@@ -11,7 +11,7 @@
 
 @interface PDBaseViewController : UIViewController <PDDataSourceDelegate>
 
-@property (nullable, nonatomic, strong) PDDataSource *controller;
+@property (nullable, nonatomic, strong) PDDataSource *dataSource;
 
 + (nonnull NSString*)segueIdentifier;
 
@@ -20,6 +20,7 @@
 - (nullable id <PDSectionInfo>)sectionInfoForSection:(NSInteger)section;
 - (nullable id <PDItemInfo> )itemInfoForIndexPath:(nonnull NSIndexPath *)indexPath;
 - (nonnull NSString *)cellIdentifierForIndexPath:(nonnull NSIndexPath *)indexPath;
+- (nonnull NSString *)sectionIdentifierForSection:(NSInteger)section;
 - (nullable Class)classForRowAtIndexPath:(nullable NSIndexPath *)indexPath;
 - (nullable Class)headerFooterClassForSection:(NSInteger)section;
 

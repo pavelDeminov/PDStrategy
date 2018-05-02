@@ -43,10 +43,10 @@ class PageAndRefreshViewController: PDTableViewController {
             }
             
             if sSelf.currentPage == 0 {
-                sSelf.controller?.setup()
+                sSelf.dataSource?.setup()
             }
             
-            guard let sectionInfo = sSelf.controller?.sections?.first as? PDSectionInfo else {
+            guard let sectionInfo = sSelf.dataSource?.sections?.first as? PDSectionInfo else {
                 return
             }
             
@@ -71,7 +71,7 @@ class PageAndRefreshViewController: PDTableViewController {
             if array.count < sSelf.limit {
                 sSelf.allDataLoaded = true
             }
-            sSelf.controller?.appendData(array)
+            sSelf.dataSource?.appendData(array)
             sSelf.currentPage += 1
             sSelf.refreshControl?.endRefreshing()
             sSelf.pageIsLoading = false
@@ -94,7 +94,7 @@ class PageAndRefreshViewController: PDTableViewController {
         }
         
         if let sectionInfo = self.sectionInfo(forSection: indexPath.section),
-            controller?.sections?.count == indexPath.section + 1,
+            dataSource?.sections?.count == indexPath.section + 1,
             sectionInfo.items?.count == indexPath.row {
             if let loadingCell = cell as? LoadingCell {
                 loadingCell.activityIndicator.startAnimating()
@@ -111,7 +111,7 @@ class PageAndRefreshViewController: PDTableViewController {
         }
         
         if let sectionInfo = self.sectionInfo(forSection: indexPath.section),
-            controller?.sections?.count == indexPath.section + 1,
+            dataSource?.sections?.count == indexPath.section + 1,
             sectionInfo.items?.count == indexPath.row {
             return LoadingCell.reuseIdentifier()
         }

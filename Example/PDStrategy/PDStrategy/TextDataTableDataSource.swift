@@ -19,7 +19,7 @@ enum TextDataTableType {
     case validate;
 }
 
-class TextDataTableController: PDDataSource {
+class TextDataTableDataSource: PDDataSource {
     override func setup() {
         let section = PDSection.instantiate()
         

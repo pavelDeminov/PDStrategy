@@ -39,7 +39,7 @@
     if (parent) {
         UIView <PDCellInfo> *view = (UIView <PDCellInfo> *)parent;
         id <PDItemInfo> itemInfo = view.itemInfo;
-        NSIndexPath *indexPath = [self.controller indexPathForItemInfo:itemInfo];
+        NSIndexPath *indexPath = [self.dataSource indexPathForItemInfo:itemInfo];
         [self scrollView:self.scrollView didSelectItemAtIndexPath:indexPath];
     }
 }
@@ -69,7 +69,7 @@
     UIView *previousView;
     NSMutableArray <NSLayoutConstraint *> *constraints = [NSMutableArray new];
     
-    for (id <PDSectionInfo> sectionInfo in self.controller.sections) {
+    for (id <PDSectionInfo> sectionInfo in self.dataSource.sections) {
         if (sectionInfo.title) {
             
         }
@@ -157,9 +157,9 @@
         
     NSInteger cellIndex = 0;
 
-    for (id <PDSectionInfo> sectionInfo in self.controller.sections) {
+    for (id <PDSectionInfo> sectionInfo in self.dataSource.sections) {
         for (int row = 0;row < sectionInfo.items.count; row++) {
-            NSInteger section = [self.controller.sections indexOfObject:sectionInfo];
+            NSInteger section = [self.dataSource.sections indexOfObject:sectionInfo];
             NSIndexPath *ip = [NSIndexPath indexPathForRow:row inSection:section];
             if ([ip isEqual:indexPath]) {
                 PDScrollViewCell *cell = [self.scrollView.subviews objectAtIndex:cellIndex];

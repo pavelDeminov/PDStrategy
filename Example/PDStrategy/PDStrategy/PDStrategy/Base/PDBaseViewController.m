@@ -47,12 +47,12 @@
     }
     
     PDDataSource *controller = [class new];
-    self.controller = controller;
+    self.dataSource = controller;
     controller.delegate= self;
 }
 
 - (nullable NSArray *)sections {
-    return self.controller.sections;
+    return self.dataSource.sections;
 }
 
 - (nullable id <PDSectionInfo>)sectionInfoForSection:(NSInteger)section {
