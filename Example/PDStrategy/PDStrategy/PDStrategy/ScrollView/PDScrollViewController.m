@@ -104,25 +104,30 @@
             [self.scrollView addSubview:cell];
             cell.translatesAutoresizingMaskIntoConstraints = NO;
             
-            if (previousView) {
-                NSLayoutConstraint *top = [NSLayoutConstraint constraintWithItem:cell attribute:(NSLayoutAttributeTop) relatedBy:(NSLayoutRelationEqual) toItem:previousView attribute:NSLayoutAttributeBottom multiplier:1 constant:0];
-                [constraints addObject:top];
+            if (self.isHorizontalScroll) {
+                if (previousView) {
+                    NSLayoutConstraint *leading = [NSLayoutConstraint constraintWithItem:cell attribute:(NSLayoutAttributeLeading) relatedBy:(NSLayoutRelationEqual) toItem:previousView attribute:NSLayoutAttributeTrailing multiplier:1 constant:self.interitemSpacing];
+                    [constraints addObject:leading];
+                } else {
+                    NSLayoutConstraint *leading = [NSLayoutConstraint constraintWithItem:cell attribute:(NSLayoutAttributeLeading) relatedBy:(NSLayoutRelationEqual) toItem:self.scrollView attribute:NSLayoutAttributeLeading multiplier:1 constant:self.interitemSpacing];
+                    [constraints addObject:leading];
+                }
+                
+                NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:cell attribute:(NSLayoutAttributeHeight) relatedBy:(NSLayoutRelationEqual) toItem:self.scrollView attribute:NSLayoutAttributeHeight multiplier:1 constant:0];
+                [constraints addObject:height];
             } else {
-                NSLayoutConstraint *top = [NSLayoutConstraint constraintWithItem:cell attribute:(NSLayoutAttributeTop) relatedBy:(NSLayoutRelationEqual) toItem:self.scrollView attribute:NSLayoutAttributeTop multiplier:1 constant:0];
-                [constraints addObject:top];
+                if (previousView) {
+                    NSLayoutConstraint *top = [NSLayoutConstraint constraintWithItem:cell attribute:(NSLayoutAttributeTop) relatedBy:(NSLayoutRelationEqual) toItem:previousView attribute:NSLayoutAttributeBottom multiplier:1 constant:0];
+                    [constraints addObject:top];
+                } else {
+                    NSLayoutConstraint *top = [NSLayoutConstraint constraintWithItem:cell attribute:(NSLayoutAttributeTop) relatedBy:(NSLayoutRelationEqual) toItem:self.scrollView attribute:NSLayoutAttributeTop multiplier:1 constant:0];
+                    [constraints addObject:top];
+                }
+                
+                NSLayoutConstraint *alignX = [NSLayoutConstraint constraintWithItem:cell attribute:(NSLayoutAttributeCenterX) relatedBy:(NSLayoutRelationEqual) toItem:self.scrollView attribute:NSLayoutAttributeCenterX multiplier:1 constant:0];
+                [constraints addObject:alignX];
             }
             
-            //            NSLayoutConstraint *leading = [NSLayoutConstraint constraintWithItem:cell attribute:(NSLayoutAttributeLeading) relatedBy:(NSLayoutRelationEqual) toItem:self.scrollView attribute:NSLayoutAttributeLeading multiplier:1 constant:0];
-            //            [constraints addObject:leading];
-            //
-            //            NSLayoutConstraint *trailing = [NSLayoutConstraint constraintWithItem:cell attribute:(NSLayoutAttributeTrailing) relatedBy:(NSLayoutRelationEqual) toItem:self.scrollView attribute:NSLayoutAttributeTrailing multiplier:1 constant:0];
-            //            [constraints addObject:trailing];
-            
-            NSLayoutConstraint *alignX = [NSLayoutConstraint constraintWithItem:cell attribute:(NSLayoutAttributeCenterX) relatedBy:(NSLayoutRelationEqual) toItem:self.scrollView attribute:NSLayoutAttributeCenterX multiplier:1 constant:0];
-            [constraints addObject:alignX];
-            
-            NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:cell attribute:(NSLayoutAttributeWidth) relatedBy:(NSLayoutRelationEqual) toItem:self.scrollView attribute:NSLayoutAttributeWidth multiplier:1 constant:0];
-            [constraints addObject:width];
             
             id <PDCellInfo> cellInfo  = (id <PDCellInfo>)cell;
             if (!cellInfo.reloadCellBlock) {
@@ -140,8 +145,13 @@
     }
     
     if (previousView) {
-        NSLayoutConstraint *bottom = [NSLayoutConstraint constraintWithItem:previousView attribute:(NSLayoutAttributeBottom) relatedBy:(NSLayoutRelationEqual) toItem:self.scrollView attribute:NSLayoutAttributeBottom multiplier:1 constant:0];
-        [constraints addObject:bottom];
+        if (self.isHorizontalScroll) {
+            NSLayoutConstraint *trailing = [NSLayoutConstraint constraintWithItem:previousView attribute:(NSLayoutAttributeTrailing) relatedBy:(NSLayoutRelationEqual) toItem:self.scrollView attribute:NSLayoutAttributeTrailing multiplier:1 constant:0];
+            [constraints addObject:trailing];
+        } else {
+            NSLayoutConstraint *bottom = [NSLayoutConstraint constraintWithItem:previousView attribute:(NSLayoutAttributeBottom) relatedBy:(NSLayoutRelationEqual) toItem:self.scrollView attribute:NSLayoutAttributeBottom multiplier:1 constant:0];
+            [constraints addObject:bottom];
+        }
     }
     
     if (constraints.count) {
@@ -154,9 +164,9 @@
 }
 
 - (PDScrollViewCell *)cellForRowIndexPath:(NSIndexPath *)indexPath {
-        
+    
     NSInteger cellIndex = 0;
-
+    
     for (id <PDSectionInfo> sectionInfo in self.dataSource.sections) {
         for (int row = 0;row < sectionInfo.items.count; row++) {
             NSInteger section = [self.dataSource.sections indexOfObject:sectionInfo];
@@ -184,3 +194,4 @@
 }
 
 @end
+

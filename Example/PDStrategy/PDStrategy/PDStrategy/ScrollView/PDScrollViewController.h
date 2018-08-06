@@ -13,6 +13,8 @@
 @interface PDScrollViewController : PDBaseViewController <UIScrollViewDelegate>
 
 @property (null_unspecified, nonatomic, weak) IBOutlet UIScrollView *scrollView;
+@property (nonatomic) BOOL isHorizontalScroll;
+@property (nonatomic) float interitemSpacing;
 
 - (void)scrollView:(nonnull UIScrollView *)scrollView didSelectItemAtIndexPath:(nonnull NSIndexPath *)indexPath;
 - (void)reloadData;
