@@ -128,6 +128,8 @@
                 [constraints addObject:alignX];
             }
             
+            NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:cell attribute:(NSLayoutAttributeWidth) relatedBy:(NSLayoutRelationEqual) toItem:self.scrollView attribute:NSLayoutAttributeWidth multiplier:1 constant:0];
+            [constraints addObject:width];
             
             id <PDCellInfo> cellInfo  = (id <PDCellInfo>)cell;
             if (!cellInfo.reloadCellBlock) {
@@ -194,4 +196,3 @@
 }
 
 @end
-
