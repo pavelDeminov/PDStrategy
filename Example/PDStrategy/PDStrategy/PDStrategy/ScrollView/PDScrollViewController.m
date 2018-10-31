@@ -113,6 +113,9 @@
                     [constraints addObject:leading];
                 }
                 
+                NSLayoutConstraint *alignY = [NSLayoutConstraint constraintWithItem:cell attribute:(NSLayoutAttributeCenterY) relatedBy:(NSLayoutRelationEqual) toItem:self.scrollView attribute:NSLayoutAttributeCenterY multiplier:1 constant:0];
+                [constraints addObject:alignY];
+                
                 NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:cell attribute:(NSLayoutAttributeHeight) relatedBy:(NSLayoutRelationEqual) toItem:self.scrollView attribute:NSLayoutAttributeHeight multiplier:1 constant:0];
                 [constraints addObject:height];
             } else {
@@ -126,10 +129,10 @@
                 
                 NSLayoutConstraint *alignX = [NSLayoutConstraint constraintWithItem:cell attribute:(NSLayoutAttributeCenterX) relatedBy:(NSLayoutRelationEqual) toItem:self.scrollView attribute:NSLayoutAttributeCenterX multiplier:1 constant:0];
                 [constraints addObject:alignX];
+                
+                NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:cell attribute:(NSLayoutAttributeWidth) relatedBy:(NSLayoutRelationEqual) toItem:self.scrollView attribute:NSLayoutAttributeWidth multiplier:1 constant:0];
+                [constraints addObject:width];
             }
-            
-            NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:cell attribute:(NSLayoutAttributeWidth) relatedBy:(NSLayoutRelationEqual) toItem:self.scrollView attribute:NSLayoutAttributeWidth multiplier:1 constant:0];
-            [constraints addObject:width];
             
             id <PDCellInfo> cellInfo  = (id <PDCellInfo>)cell;
             if (!cellInfo.reloadCellBlock) {

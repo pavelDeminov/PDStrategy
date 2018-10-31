@@ -143,6 +143,11 @@
     return cell;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
+    [cell setNeedsLayout];
+    [cell layoutIfNeeded];
+}
+
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     return [self cellSizeForItemAt:indexPath];
@@ -156,16 +161,22 @@
     UICollectionViewCell *prototype = self.registeredPrototypes[cellIdentifier];
     if (!prototype) {
         prototype = [[[NSBundle mainBundle] loadNibNamed:cellIdentifier owner:nil options:nil] objectAtIndex:0];
-        
+        prototype.contentView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:prototype.contentView attribute:(NSLayoutAttributeWidth) relatedBy:(NSLayoutRelationEqual) toItem:nil attribute:NSLayoutAttributeWidth multiplier:1.0 constant:dynamicSize.width];
+        width.priority = UILayoutPriorityRequired;
         [NSLayoutConstraint activateConstraints:@[width]];
-        
+        //NSArray *constraints = prototype.constraints;
         self.registeredPrototypes[cellIdentifier] = prototype;
     }
+    
+    CGRect frame = prototype.frame;
+    frame.size.width = dynamicSize.width;
+    prototype.frame = frame;
     
     id <PDCellInfo> cellInfo  = (id <PDCellInfo>)prototype;
     
     cellInfo.itemInfo = itemInfo;
+    [prototype layoutSubviews];
     CGSize s = [prototype systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
     
     return s;
